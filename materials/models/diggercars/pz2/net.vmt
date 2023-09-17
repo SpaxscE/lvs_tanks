@@ -1,0 +1,24 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/diggercars/pz2/net"
+	"$bumpmap" "models/diggercars/pz2/net_nm"
+	"$alphatest" "1"
+	"$phong" "1"
+//	$phongexponent 33
+	"$phongexponenttexture" "models/diggercars/pz2/net_exp"
+	"$phongboost"	"6"
+	"$phongfresnelranges"	"[0.05 0.5 1]"
+	"$colorfix" "{255 255 255}"
+	"Proxies"
+	{
+		"Equals"
+		{
+			srcVar1 $colorfix
+			resultVar	$color
+		}
+	}
+}
+
+
+
+

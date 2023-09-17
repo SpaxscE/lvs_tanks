@@ -1,0 +1,22 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/diggercars/t34/41_track"
+	"$bumpmap" "models/diggercars/t34/41_track_nm"
+	"$phong" "1"
+//	$phongexponent 3
+	"$phongexponenttexture" "models/diggercars/t34/41_track_exp"
+	"$phongboost"	"1"
+	"$phongfresnelranges"	"[0.05 0.5 1]"
+	"$colorfix" "{255 255 255}"
+	"Proxies"
+	{
+		"Equals"
+		{
+			srcVar1 $colorfix
+			resultVar	$color
+		}
+	}
+}
+
+
+
