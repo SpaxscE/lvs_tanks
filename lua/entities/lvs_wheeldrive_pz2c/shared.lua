@@ -34,7 +34,7 @@ ENT.MaxVelocity = 450
 ENT.MaxVelocityReverse = 150
 
 ENT.EngineCurve = 0.1
-ENT.EngineTorque = 200
+ENT.EngineTorque = 350
 
 ENT.TransMinGearHoldTime = 0.1
 ENT.TransShiftSpeed = 0
@@ -48,3 +48,30 @@ ENT.WheelBrakeAutoLockup = true
 ENT.WheelBrakeLockupRPM = 15
 
 ENT.lvsShowInSpawner = true
+
+ENT.EngineSounds = {
+	{
+		sound = "lvs/vehicles/sherman/eng_idle_loop.wav",
+		Volume = 1,
+		Pitch = 70,
+		PitchMul = 30,
+		SoundLevel = 75,
+		SoundType = LVS.SOUNDTYPE_IDLE_ONLY,
+	},
+	{
+		sound = "lvs/vehicles/sherman/eng_loop.wav",
+		Volume = 1,
+		Pitch = 20,
+		PitchMul = 90,
+		SoundLevel = 85,
+		SoundType = LVS.SOUNDTYPE_NONE,
+		UseDoppler = true,
+	},
+}
+
+ENT.ExhaustPositions = {
+	{
+		pos = Vector(-93.49,19.11,41.56),
+		ang = Angle(-155,0,0)
+	},
+}
