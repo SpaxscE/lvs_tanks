@@ -83,7 +83,7 @@ function ENT:InitWeapons()
 	local weapon = {}
 	weapon.Icon = true
 	weapon.Ammo = 60
-	weapon.Delay = 2.25
+	weapon.Delay = 2
 	weapon.HeatRateUp = 1
 	weapon.HeatRateDown = 0.6
 	weapon.OnThink = function( ent )
