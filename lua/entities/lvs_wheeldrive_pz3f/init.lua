@@ -17,7 +17,7 @@ function ENT:MakeSoundEmitters()
 
 	local ID = self:LookupAttachment( "muzzle_cannon" )
 	local Muzzle = self:GetAttachment( ID )
-	self.SNDTurret = self:AddSoundEmitter( self:WorldToLocal( Muzzle.Pos ), "lvs/vehicles/pz3/cannon_fire1.wav", "lvs/vehicles/pz3/cannon_fire1.wav" )
+	self.SNDTurret = self:AddSoundEmitter( self:WorldToLocal( Muzzle.Pos ), "lvs/vehicles/pz3/cannon_fire2.wav", "lvs/vehicles/pz3/cannon_fire2.wav" )
 	self.SNDTurret:SetSoundLevel( 95 )
 	self.SNDTurret:SetParent( self, ID )
 end

@@ -28,7 +28,7 @@ function ENT:MakeDriverSeat()
 	DoorHandler:SetSoundClose( "lvs/vehicles/generic/car_hood_close.wav" )
 	DoorHandler:LinkToSeat( DriverSeat )
 
-	local DoorHandler = self:AddDoorHandler( "hatch7", Vector(20,0,80), Angle(0,0,0), Vector(-20,-20,-10), Vector(20,20,10), Vector(-20,-20,-10), Vector(20,20,10) )
+	local DoorHandler = self:AddDoorHandler( "hatch7", Vector(20,0,80), Angle(0,0,0), Vector(-40,-40,-10), Vector(40,40,10), Vector(-40,-40,-10), Vector(40,40,10) )
 	DoorHandler:SetSoundOpen( "lvs/vehicles/generic/car_hood_open.wav" )
 	DoorHandler:SetSoundClose( "lvs/vehicles/generic/car_hood_close.wav" )
 	DoorHandler:LinkToSeat( DriverSeat )

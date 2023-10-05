@@ -1,7 +1,7 @@
 
 ENT.Base = "lvs_wheeldrive_pz3_base"
 
-ENT.PrintName = "Pz.Kpfw. III Ausf. E"
+ENT.PrintName = "Pz.Kpfw. III Ausf. F"
 ENT.Author = "Digger"
 ENT.Information = "Luna's Vehicle Script"
 ENT.Category = "[LVS] - Cars"
@@ -9,10 +9,10 @@ ENT.Category = "[LVS] - Cars"
 ENT.Spawnable			= true
 ENT.AdminSpawnable		= false
 
-ENT.MDL = "models/diggercars/pz3/pz3_asuf_e.mdl"
+ENT.MDL = "models/diggercars/pz3/pz3_asuf_f.mdl"
 ENT.MDL_DESTROYED = "models/diggercars/pz3/pz3_dead.mdl"
 
-ENT.CannonArmorPenetration = 4000
+ENT.CannonArmorPenetration = 6000
 
 function ENT:InitWeapons()
 	-- coaxial machinegun
@@ -121,16 +121,16 @@ function ENT:InitWeapons()
 		if ent:GetUseHighExplosive() then
 			bullet.Force	= 250
 			bullet.HullSize 	= 15
-			bullet.Damage	= 400
-			bullet.SplashDamage = 400
-			bullet.SplashDamageRadius = 120
+			bullet.Damage	= 200
+			bullet.SplashDamage = 700
+			bullet.SplashDamageRadius = 200
 			bullet.SplashDamageEffect = "lvs_bullet_impact_explosive"
 			bullet.SplashDamageType = DMG_BLAST
 			bullet.Velocity = 13000
 		else
 			bullet.Force	= ent.CannonArmorPenetration
 			bullet.HullSize 	= 0
-			bullet.Damage	= 800
+			bullet.Damage	= 900
 			bullet.Velocity = 16000
 		end
 

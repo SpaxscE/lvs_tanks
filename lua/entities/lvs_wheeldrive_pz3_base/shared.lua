@@ -22,8 +22,8 @@ ENT.PhysicsWeightScale = 2
 ENT.PhysicsDampingSpeed = 1000
 ENT.PhysicsInertia = Vector(6000,6000,1500)
 
-ENT.MaxVelocity = 550
-ENT.MaxVelocityReverse = 130
+ENT.MaxVelocity = 700
+ENT.MaxVelocityReverse = 200
 
 ENT.EngineCurve = 0.1
 ENT.EngineTorque = 210
@@ -31,7 +31,7 @@ ENT.EngineTorque = 210
 ENT.TransMinGearHoldTime = 0.1
 ENT.TransShiftSpeed = 0
 
-ENT.TransGears = 3
+ENT.TransGears = 4
 ENT.TransGearsReverse = 1
 
 ENT.MouseSteerAngle = 45
