@@ -11,6 +11,7 @@ include("sh_tracks.lua")
 function ENT:OnSpawn( PObj )
 	self:MakeDriverSeat()
 	self:MakeGunnerSeat()
+	self:MakeTopGunnerSeat()
 	self:MakeDoors()
 	self:MakeArmor()
 	self:MakeWeakSpots()
@@ -27,11 +28,20 @@ function ENT:MakeDriverSeat()
 	DoorHandler:SetSoundOpen( "lvs/vehicles/generic/car_hood_open.wav" )
 	DoorHandler:SetSoundClose( "lvs/vehicles/generic/car_hood_close.wav" )
 	DoorHandler:LinkToSeat( DriverSeat )
+end
 
-	local DoorHandler = self:AddDoorHandler( "hatch7", Vector(20,0,80), Angle(0,0,0), Vector(-40,-40,-10), Vector(40,40,10), Vector(-40,-40,-10), Vector(40,40,10) )
+function ENT:MakeTopGunnerSeat()
+	local TopGunnerSeat = self:AddPassengerSeat( Vector(8,0,60), Angle(0,-90,0) )
+	TopGunnerSeat.HidePlayer = true
+
+	self:SetTopGunnerSeat( TopGunnerSeat )
+
+	local DoorHandler = self:AddDoorHandler( "hatch7", Vector(20,0,80), Angle(0,0,0), Vector(-50,-40,-10), Vector(40,40,10), Vector(-50,-40,-10), Vector(40,40,10) )
 	DoorHandler:SetSoundOpen( "lvs/vehicles/generic/car_hood_open.wav" )
 	DoorHandler:SetSoundClose( "lvs/vehicles/generic/car_hood_close.wav" )
-	DoorHandler:LinkToSeat( DriverSeat )
+	DoorHandler:LinkToSeat( TopGunnerSeat )
+
+	self.TopGunnerDoorHandler = DoorHandler
 end
 
 function ENT:MakeGunnerSeat()

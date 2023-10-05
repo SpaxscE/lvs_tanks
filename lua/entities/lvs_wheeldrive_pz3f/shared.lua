@@ -227,16 +227,17 @@ function ENT:InitWeapons()
 	self:AddWeapon( weapon )
 
 	self:AddGunnerWeapons()
+	self:AddTopGunnerWeapons()
 end
 
 function ENT:GunnerInRange( Dir )
 	return self:AngleBetweenNormal( self:GetForward(), Dir ) < 30
 end
 
-function ENT:AddGunnerWeapons()
-	local COLOR_RED = Color(255,0,0,255)
-	local COLOR_WHITE = Color(255,255,255,255)
+local COLOR_RED = Color(255,0,0,255)
+local COLOR_WHITE = Color(255,255,255,255)
 
+function ENT:AddGunnerWeapons()
 	local weapon = {}
 	weapon.Icon = Material("lvs/weapons/mg.png")
 	weapon.Ammo = 1000
@@ -325,4 +326,104 @@ function ENT:AddGunnerWeapons()
 		base:LVSPaintHitMarker( Pos2D )
 	end
 	self:AddWeapon( weapon, 2 )
+end
+
+function ENT:TopGunnerInRange( Dir )
+	local Ang = self:WorldToLocalAngles( Dir:Angle() ) - Angle(0,self:GetTurretYaw(),0)
+	Ang:Normalize()
+
+	return math.abs( Ang.y ) < 60 and math.abs( Ang.p ) < 30
+end
+
+function ENT:AddTopGunnerWeapons()
+	local weapon = {}
+	weapon.Icon = Material("lvs/weapons/mg.png")
+	weapon.Ammo = 1000
+	weapon.Delay = 0.1
+	weapon.HeatRateUp = 0.2
+	weapon.HeatRateDown = 0.25
+	weapon.Attack = function( ent )
+		local base = ent:GetVehicle()
+
+		if not IsValid( base ) then return end
+
+		if not base:TopGunnerInRange( ent:GetAimVector() ) then
+
+			if not IsValid( base.SNDTurretMGt ) then return true end
+
+			base.SNDTurretMGt:Stop()
+	
+			return true
+		end
+
+		local ID = base:LookupAttachment( "topmg_muzzle" )
+
+		local Muzzle = base:GetAttachment( ID )
+
+		if not Muzzle then return end
+
+		local bullet = {}
+		bullet.Src 	= Muzzle.Pos
+		bullet.Dir 	= (ent:GetEyeTrace().HitPos - bullet.Src):GetNormalized()
+		bullet.Spread 	= Vector(0.015,0.015,0.015)
+		bullet.TracerName = "lvs_tracer_yellow"
+		bullet.Force	= 10
+		bullet.HullSize 	= 0
+		bullet.Damage	= 25
+		bullet.Velocity = 30000
+		bullet.Attacker 	= ent:GetDriver()
+		ent:LVSFireBullet( bullet )
+
+		local effectdata = EffectData()
+		effectdata:SetOrigin( bullet.Src )
+		effectdata:SetNormal( Muzzle.Ang:Forward() )
+		effectdata:SetEntity( ent )
+		util.Effect( "lvs_muzzle", effectdata )
+
+		ent:TakeAmmo( 1 )
+
+		base:PlayAnimation( "mg_fire" )
+
+		if not IsValid( base.SNDTurretMGt ) then return end
+
+		base.SNDTurretMGt:Play()
+	end
+	weapon.StartAttack = function( ent )
+		local base = ent:GetVehicle()
+
+		if not IsValid( base ) or not IsValid( base.SNDTurretMGt ) then return end
+
+		base.SNDTurretMGt:Play()
+	end
+	weapon.FinishAttack = function( ent )
+		local base = ent:GetVehicle()
+
+		if not IsValid( base ) or not IsValid( base.SNDTurretMGt ) then return end
+
+		base.SNDTurretMGt:Stop()
+	end
+	weapon.OnThink = function( ent, active )
+		local base = ent:GetVehicle()
+
+		if not IsValid( base ) then return end
+
+		local Ang = base:WorldToLocalAngles( ent:GetAimVector():Angle() ) - Angle(0,base:GetTurretYaw(),0)
+		Ang:Normalize()
+
+		base:SetPoseParameter("topmg_yaw", -Ang.y )
+		base:SetPoseParameter("topmg_pitch", -Ang.p )
+	end
+	weapon.HudPaint = function( ent, X, Y, ply )
+		local base = ent:GetVehicle()
+
+		if not IsValid( base ) then return end
+
+		local Pos2D = ent:GetEyeTrace().HitPos:ToScreen()
+
+		local Col =  base:TopGunnerInRange( ent:GetAimVector() ) and COLOR_WHITE or COLOR_RED
+
+		base:PaintCrosshairCenter( Pos2D, Col )
+		base:LVSPaintHitMarker( Pos2D )
+	end
+	self:AddWeapon( weapon, 3 )
 end
