@@ -28,3 +28,16 @@ function ENT:MakeSoundEmitters()
 	self.SNDTurret:SetSoundLevel( 95 )
 	self.SNDTurret:SetParent( self, ID )
 end
+
+function ENT:OnTick()
+	local TopGunnerSeat = self:GetTopGunnerSeat()
+	local DoorHandler = self.TopGunnerDoorHandler
+
+	if not IsValid( DoorHandler ) or not IsValid( TopGunnerSeat ) then return end
+
+	local PoseValue = IsValid( TopGunnerSeat:GetDriver() ) and 1 or 0
+
+	if PoseValue ~= DoorHandler:GetPoseMin() then
+		DoorHandler:SetPoseMin( PoseValue )
+	end
+end

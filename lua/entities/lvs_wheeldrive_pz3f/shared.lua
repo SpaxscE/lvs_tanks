@@ -407,6 +407,10 @@ function ENT:AddTopGunnerWeapons()
 
 		if not IsValid( base ) then return end
 
+		local pod = base:GetTopGunnerSeat()
+
+		if not base:GetAI() and (not IsValid( pod ) or not IsValid( pod:GetDriver() )) then return end
+
 		local Ang = base:WorldToLocalAngles( ent:GetAimVector():Angle() ) - Angle(0,base:GetTurretYaw(),0)
 		Ang:Normalize()
 
@@ -425,5 +429,6 @@ function ENT:AddTopGunnerWeapons()
 		base:PaintCrosshairCenter( Pos2D, Col )
 		base:LVSPaintHitMarker( Pos2D )
 	end
+	weapon.OnOverheat = function( ent ) ent:EmitSound("lvs/overheat.wav") end
 	self:AddWeapon( weapon, 3 )
 end
