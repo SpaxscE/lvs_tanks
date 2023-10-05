@@ -12,7 +12,7 @@ function ENT:MakeSoundEmitters()
 
 	local ID = self:LookupAttachment( "topmg_muzzle" )
 	local Muzzle = self:GetAttachment( ID )
-	self.SNDTurretMGt = self:AddSoundEmitter( self:WorldToLocal( Muzzle.Pos ), "lvs/vehicles/sherman/mg_loop.wav", "lvs/vehicles/sherman/mg_loop_interior.wav" )
+	self.SNDTurretMGt = self:AddSoundEmitter( self:WorldToLocal( Muzzle.Pos ), "lvs/vehicles/pz3/mg_loop.wav" )
 	self.SNDTurretMGt:SetSoundLevel( 95 )
 	self.SNDTurretMGt:SetParent( self, ID )
 
@@ -30,6 +30,8 @@ function ENT:MakeSoundEmitters()
 end
 
 function ENT:OnTick()
+	self:AimTurret()
+
 	local TopGunnerSeat = self:GetTopGunnerSeat()
 	local DoorHandler = self.TopGunnerDoorHandler
 

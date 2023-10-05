@@ -339,9 +339,9 @@ function ENT:AddTopGunnerWeapons()
 	local weapon = {}
 	weapon.Icon = Material("lvs/weapons/mg.png")
 	weapon.Ammo = 1000
-	weapon.Delay = 0.1
-	weapon.HeatRateUp = 0.2
-	weapon.HeatRateDown = 0.25
+	weapon.Delay = 0.08
+	weapon.HeatRateUp = 0.15
+	weapon.HeatRateDown = 0.3
 	weapon.Attack = function( ent )
 		local base = ent:GetVehicle()
 
@@ -352,7 +352,7 @@ function ENT:AddTopGunnerWeapons()
 			if not IsValid( base.SNDTurretMGt ) then return true end
 
 			base.SNDTurretMGt:Stop()
-	
+
 			return true
 		end
 
@@ -365,12 +365,12 @@ function ENT:AddTopGunnerWeapons()
 		local bullet = {}
 		bullet.Src 	= Muzzle.Pos
 		bullet.Dir 	= (ent:GetEyeTrace().HitPos - bullet.Src):GetNormalized()
-		bullet.Spread 	= Vector(0.015,0.015,0.015)
-		bullet.TracerName = "lvs_tracer_yellow"
+		bullet.Spread 	= Vector(0.025,0.025,0.025)
+		bullet.TracerName = "lvs_tracer_yellow_small"
 		bullet.Force	= 10
 		bullet.HullSize 	= 0
-		bullet.Damage	= 25
-		bullet.Velocity = 30000
+		bullet.Damage	= 15
+		bullet.Velocity = 15000
 		bullet.Attacker 	= ent:GetDriver()
 		ent:LVSFireBullet( bullet )
 
@@ -398,7 +398,7 @@ function ENT:AddTopGunnerWeapons()
 	weapon.FinishAttack = function( ent )
 		local base = ent:GetVehicle()
 
-		if not IsValid( base ) or not IsValid( base.SNDTurretMGt ) then return end
+		if not IsValid( base ) or not IsValid( base.SNDTurretMGt ) or not base.SNDTurretMGt:GetActive() then return end
 
 		base.SNDTurretMGt:Stop()
 	end
@@ -419,14 +419,24 @@ function ENT:AddTopGunnerWeapons()
 	end
 	weapon.HudPaint = function( ent, X, Y, ply )
 		local base = ent:GetVehicle()
+		local pod = ply:GetVehicle()
 
 		if not IsValid( base ) then return end
 
 		local Pos2D = ent:GetEyeTrace().HitPos:ToScreen()
 
-		local Col =  base:TopGunnerInRange( ent:GetAimVector() ) and COLOR_WHITE or COLOR_RED
+		local InRange = base:TopGunnerInRange( ent:GetAimVector() )
 
-		base:PaintCrosshairCenter( Pos2D, Col )
+		local Col = InRange and COLOR_WHITE or COLOR_RED
+
+		if pod:GetThirdPersonMode() then
+			base:PaintCrosshairCenter( Pos2D, Col )
+		else
+			if not InRange then
+				base:PaintCrosshairCenter( Pos2D, Col )
+			end
+		end
+
 		base:LVSPaintHitMarker( Pos2D )
 	end
 	weapon.OnOverheat = function( ent ) ent:EmitSound("lvs/overheat.wav") end
