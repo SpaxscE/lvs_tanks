@@ -13,7 +13,7 @@ ENT.MDL = "models/diggercars/pz2/pz2_ausf_c.mdl"
 
 ENT.AITEAM = 1
 
-ENT.MaxHealth = 1000
+ENT.MaxHealth = 750
 
 --damage system
 ENT.DSArmorIgnoreForce = 1000
