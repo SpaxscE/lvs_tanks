@@ -21,23 +21,18 @@ function ENT:OnSpawn( PObj )
 	self.SNDTurret:SetSoundLevel( 95 )
 	self.SNDTurret:SetParent( self, ID )
 
-	local DriverSeat = self:AddDriverSeat( Vector(0,0,60), Angle(0,-90,0) )
+	local DriverSeat = self:AddDriverSeat( Vector(33,10,13), Angle(0,-90,0) )
 	DriverSeat.HidePlayer = true
 
-	local mins = self:OBBMins()
-	local maxs = self:OBBMaxs()
-
-	local DoorHandler = self:AddDoorHandler( "hatch8", vector_origin, angle_zero, Vector(0,mins.y,mins.z), maxs  )
+	local DoorHandler = self:AddDoorHandler( "hatch8", Vector(65,10,35), Angle(15,0,0), Vector(-17,-16,-12), Vector(10,16,12), Vector(-17,-16,-12), Vector(10,16,12) )
 	DoorHandler:SetSoundOpen( "lvs/vehicles/generic/car_hood_open.wav" )
 	DoorHandler:SetSoundClose( "lvs/vehicles/generic/car_hood_close.wav" )
 	DoorHandler:LinkToSeat( DriverSeat )
 
-	--[[
 	local DoorHandler = self:AddDoorHandler( "hatch7", Vector(8,0,78), Angle(0,0,0), Vector(-10,-10,-10), Vector(10,10,10), Vector(-10,-10,-10), Vector(10,10,10) )
 	DoorHandler:SetSoundOpen( "lvs/vehicles/generic/car_hood_open.wav" )
 	DoorHandler:SetSoundClose( "lvs/vehicles/generic/car_hood_close.wav" )
 	DoorHandler:LinkToSeat( DriverSeat )
-	]]
 
 	local DoorHandler = self:AddDoorHandler( "hatch6", Vector(-40,18,41), Angle(0,0,0), Vector(-10,-15,-14), Vector(20,15,10), Vector(-10,-15,-14), Vector(20,15,10) )
 	DoorHandler:SetSoundOpen( "lvs/vehicles/generic/car_hood_open.wav" )
