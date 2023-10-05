@@ -1,7 +1,7 @@
 
 ENT.Base = "lvs_wheeldrive_pz3_base"
 
-ENT.PrintName = "Pz.Kpfw. III Ausf. E"
+ENT.PrintName = "Panzer III [E]"
 ENT.Author = "Digger"
 ENT.Information = "Luna's Vehicle Script"
 ENT.Category = "[LVS] - Cars"
