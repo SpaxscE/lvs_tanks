@@ -24,9 +24,9 @@ function ENT:OnSpawn( PObj )
 		mins = Vector(-34,-34,-24),
 		maxs = Vector(34,34,24),
 		Callback = function( tbl, ent, dmginfo )
-		local ply = ent:GetDriver()
+			local ply = ent:GetDriver()
 
-		if not IsValid( ply ) then return end
+			if not IsValid( ply ) then return end
 
 			ent:HurtPlayer( ply, dmginfo:GetDamage(), dmginfo:GetAttacker(), dmginfo:GetInflictor() )
 		end
