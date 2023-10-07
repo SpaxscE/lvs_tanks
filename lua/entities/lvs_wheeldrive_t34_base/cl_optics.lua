@@ -8,7 +8,6 @@ ENT.OpticsPodIndex = {
 	[1] = true,
 }
 
-
 local axis = Material( "lvs/axis.png" )
 local tri1 = Material( "lvs/triangle1.png" )
 local tri2 = Material( "lvs/triangle2.png" )
@@ -56,9 +55,11 @@ function ENT:PaintOptics( Pos2D, Col, PodIndex, Type )
 		self:DrawRotatedText( Type == 3 and "HE" or "AP", Pos2D.x + 30, Pos2D.y + 30, "LVS_FONT_PANEL", Color(0,0,0,220), 0)
 	end
 
+	local H05 = ScrH() * 0.5
+
 	for i = 1, #Circles do
 		local data = Circles[ i ]
-		local radius = ScrH() * 0.5 + data.r
+		local radius = H05 + data.r
 		local segmentdist = 360 / ( math.pi * radius / 2 )
 
 		for a = 0, 360, segmentdist do
@@ -66,5 +67,57 @@ function ENT:PaintOptics( Pos2D, Col, PodIndex, Type )
 
 			surface.DrawLine( Pos2D.x - math.sin( math.rad( a ) ) * radius, Pos2D.y + math.cos( math.rad( a ) ) * radius, Pos2D.x - math.sin( math.rad( a + segmentdist ) ) * radius, Pos2D.y + math.cos( math.rad( a + segmentdist ) ) * radius )
 		end
+	end
+
+	local Ro = math.min(self:WorldToLocal( self:GetEyeTrace().HitPos ):Length() / 50000,1) * 90
+
+	local R1 = math.rad( 100 + Ro )
+	local R2 = math.rad( 260 - Ro )
+
+	local X1 = math.sin( R1 ) * H05
+	local Y1 = math.cos( R1 ) * H05
+	local X2 = math.sin( R2 ) * H05
+
+	surface.SetDrawColor( 0, 0, 0, 100 )
+	surface.DrawLine( Pos2D.x + X1, Pos2D.y + Y1, Pos2D.x + X2, Pos2D.y + Y1 )
+
+	local Cstart = Pos2D.x - H05 * 0.4
+	local Ystart = Pos2D.y - H05 * 0.15
+	local xSwap = true
+
+	self:DrawRotatedText( "БРОГ", Cstart, Ystart + H05 * 0.025, "LVS_FONT_PANEL", Color(0,0,0,200), 0)
+
+	for i = 0, 46 do
+		local Y = Ystart - i * H05 * 0.014
+
+		local Xa = xSwap and 12 or 6
+		local Xb = xSwap and 6 or 12
+
+		surface.DrawLine( Cstart - Xa, Y, Cstart + Xb, Y )
+
+		local textX = Cstart + (xSwap and -1 or 1) * 20
+
+		self:DrawRotatedText( i, textX, Y, "LVS_FONT_PANEL", Color(0,0,0,200), 0)
+
+		xSwap = not xSwap
+	end
+
+	Cstart = Pos2D.x + H05 * 0.4
+
+	self:DrawRotatedText( "ДТ", Cstart, Ystart + H05 * 0.025, "LVS_FONT_PANEL", Color(0,0,0,200), 0)
+
+	for i = 0, 16 do
+		local Y = Ystart - i * H05 * 0.016
+
+		local Xa = xSwap and 12 or 6
+		local Xb = xSwap and 6 or 12
+
+		surface.DrawLine( Cstart - Xa, Y, Cstart + Xb, Y )
+
+		local textX = Cstart + (xSwap and -1 or 1) * 20
+
+		self:DrawRotatedText( i, textX, Y, "LVS_FONT_PANEL", Color(0,0,0,200), 0)
+
+		xSwap = not xSwap
 	end
 end
