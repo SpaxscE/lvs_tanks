@@ -18,8 +18,19 @@ function ENT:OnSpawn( PObj )
 	self:AddEngine( Vector(-55.66,-10,50), Angle(0,180,0) )
 	self:AddFuelTank( Vector(-75,0,20), Angle(0,0,0), 600, LVS.FUELTYPE_PETROL, Vector(-10,-30,0),Vector(10,30,40) )
 
-	-- driver viewport weakstop
-	self:AddDriverViewPort( Vector(-50,0,60), Angle(0,0,0), Vector(-34,-34,-24), Vector(34,34,24) )
+	self:AddDS( {
+		pos = Vector(-50,0,60),
+		ang = Angle(0,0,0),
+		mins = Vector(-34,-34,-24),
+		maxs = Vector(34,34,24),
+		Callback = function( tbl, ent, dmginfo )
+		local ply = ent:GetDriver()
+
+		if not IsValid( ply ) then return end
+
+			ent:HurtPlayer( ply, dmginfo:GetDamage(), dmginfo:GetAttacker(), dmginfo:GetInflictor() )
+		end
+	} )
 
 end
 
