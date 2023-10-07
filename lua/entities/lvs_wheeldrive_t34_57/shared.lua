@@ -1,7 +1,7 @@
 
 ENT.Base = "lvs_wheeldrive_t34_base"
 
-ENT.PrintName = "T-34-57"
+ENT.PrintName = "T34-57"
 ENT.Author = "Digger"
 ENT.Information = "Luna's Vehicle Script"
 ENT.Category = "[LVS] - Cars"
