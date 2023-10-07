@@ -1,7 +1,7 @@
 
 ENT.Base = "lvs_wheeldrive_t34_base"
 
-ENT.PrintName = "T34 [1941]"
+ENT.PrintName = "T-34-57"
 ENT.Author = "Digger"
 ENT.Information = "Luna's Vehicle Script"
 ENT.Category = "[LVS] - Cars"
@@ -9,10 +9,10 @@ ENT.Category = "[LVS] - Cars"
 ENT.Spawnable			= true
 ENT.AdminSpawnable		= false
 
-ENT.MDL = "models/diggercars/t34/t34_1941.mdl"
+ENT.MDL = "models/diggercars/t34/t34_57.mdl"
 ENT.MDL_DESTROYED = "models/diggercars/t34/t34_dead.mdl"
 
-ENT.CannonArmorPenetration = 8600
+ENT.CannonArmorPenetration = 11200
 
 function ENT:InitWeapons()
 	-- coaxial machinegun
@@ -23,7 +23,7 @@ function ENT:InitWeapons()
 	weapon.HeatRateUp = 0.2
 	weapon.HeatRateDown = 0.25
 	weapon.Attack = function( ent )
-		local ID = ent:LookupAttachment( "muzzle_turret" )
+		local ID = ent:LookupAttachment( "muzzle_turret_57" )
 
 		local Muzzle = ent:GetAttachment( ID )
 
@@ -59,7 +59,7 @@ function ENT:InitWeapons()
 	end
 	weapon.OnOverheat = function( ent ) ent:EmitSound("lvs/overheat.wav") end
 	weapon.HudPaint = function( ent, X, Y, ply )
-		local ID = ent:LookupAttachment(  "muzzle_turret" )
+		local ID = ent:LookupAttachment(  "muzzle_turret_57" )
 
 		local Muzzle = ent:GetAttachment( ID )
 
@@ -82,7 +82,7 @@ function ENT:InitWeapons()
 
 	local weapon = {}
 	weapon.Icon = true
-	weapon.Ammo = 80
+	weapon.Ammo = 100
 	weapon.Delay = 2.5
 	weapon.HeatRateUp = 1
 	weapon.HeatRateDown = 0.4
@@ -107,7 +107,7 @@ function ENT:InitWeapons()
 		end
 	end
 	weapon.Attack = function( ent )
-		local ID = ent:LookupAttachment( "muzzle" )
+		local ID = ent:LookupAttachment( "muzzle_57" )
 
 		local Muzzle = ent:GetAttachment( ID )
 
@@ -121,8 +121,8 @@ function ENT:InitWeapons()
 		if ent:GetUseHighExplosive() then
 			bullet.Force	= 500
 			bullet.HullSize 	= 15
-			bullet.Damage	= 250
-			bullet.SplashDamage = 750
+			bullet.Damage	= 200
+			bullet.SplashDamage = 550
 			bullet.SplashDamageRadius = 200
 			bullet.SplashDamageEffect = "lvs_bullet_impact_explosive"
 			bullet.SplashDamageType = DMG_BLAST
@@ -130,7 +130,7 @@ function ENT:InitWeapons()
 		else
 			bullet.Force	= ent.CannonArmorPenetration
 			bullet.HullSize 	= 0
-			bullet.Damage	= 1000
+			bullet.Damage	= 600
 			bullet.Velocity = 16000
 		end
 
@@ -160,7 +160,7 @@ function ENT:InitWeapons()
 		ent:EmitSound("lvs/vehicles/t34/cannon_reload.wav", 75, 100, 1, CHAN_WEAPON )
 	end
 	weapon.HudPaint = function( ent, X, Y, ply )
-		local ID = ent:LookupAttachment(  "muzzle" )
+		local ID = ent:LookupAttachment(  "muzzle_57" )
 
 		local Muzzle = ent:GetAttachment( ID )
 
