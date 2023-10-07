@@ -85,11 +85,7 @@ function ENT:MakeWeakSpots()
 	self:AddDriverViewPort( Vector(71.52,18.44,54.3), Angle(0,0,0), Vector(-2,-7,-2), Vector(2,7,2) )
 
 	-- ammo rack weakspot
-	--self:AddAmmoRack( Vector(23.38,-29.13,30.32), Vector(10,0,62.5), Angle(90,90,0), Vector(-9.25,-12.25,-6.25), Vector(9.25,12.25,6.25) )
-	--self:AddAmmoRack( Vector(-3.78,-17.2,30.4), Vector(10,0,62.5), Angle(90,12.5,0), Vector(-9.25,-12.25,-6.25), Vector(9.25,12.25,6.25) )
-
-	--self:AddAmmoRack( Vector(23.38,29.13,30.32), Vector(10,0,62.5), Angle(90,90,0), Vector(-9.25,-12.25,-6.25), Vector(9.25,12.25,6.25) )
-	--self:AddAmmoRack( Vector(-3.78,17.2,30.4), Vector(10,0,62.5), Angle(90,-12.5,0), Vector(-9.25,-12.25,-6.25), Vector(9.25,12.25,6.25) )
+	self:AddAmmoRack( Vector(25,0,30), Vector(21,0,65), Angle(0,0,0), Vector(-24.25,-24.25,-12.25), Vector(24.25,24.25,12.25) )
 end
 
 function ENT:MakeSoundEmitters()
