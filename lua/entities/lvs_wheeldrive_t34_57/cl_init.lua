@@ -7,7 +7,7 @@ function ENT:TankViewOverride( ply, pos, angles, fov, pod )
 		local Muzzle = self:GetAttachment( ID )
 
 		if Muzzle then
-			pos =  Muzzle.Pos - Muzzle.Ang:Up() * 75 - Muzzle.Ang:Forward() * 12 - Muzzle.Ang:Right() * 5
+			pos =  Muzzle.Pos - Muzzle.Ang:Up() * 110 + Muzzle.Ang:Forward() * 12 - Muzzle.Ang:Right() * 5
 		end
 
 	end
