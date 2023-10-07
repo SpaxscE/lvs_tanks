@@ -114,6 +114,7 @@ function ENT:InitWeapons()
 	-- turret rotation disabler
 	local weapon = {}
 	weapon.Icon = Material("lvs/weapons/tank_noturret.png")
+	weapon.UseableByAI = false
 	weapon.Ammo = -1
 	weapon.Delay = 0
 	weapon.HeatRateUp = 0
