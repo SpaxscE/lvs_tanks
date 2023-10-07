@@ -1,19 +1,10 @@
 
 ENT.Base = "lvs_tank_wheeldrive"
 
-ENT.PrintName = "T34 (1941)"
-ENT.Author = "Digger"
-ENT.Information = "Luna's Vehicle Script"
-ENT.Category = "[LVS] - Cars"
-
-ENT.Spawnable			= true
+ENT.Spawnable			= false
 ENT.AdminSpawnable		= false
 
-ENT.MDL = "models/diggercars/t34/t34_1941.mdl"
 ENT.MDL_DESTROYED = "models/diggercars/t34/t34_dead.mdl"
-
---ENT.Spawnable			= false
---ENT.AdminSpawnable		= false
 
 ENT.AITEAM = 2
 
