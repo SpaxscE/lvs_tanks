@@ -4,8 +4,6 @@ ENT.Base = "lvs_tank_wheeldrive"
 ENT.Spawnable			= false
 ENT.AdminSpawnable		= false
 
-ENT.MDL_DESTROYED = "models/diggercars/t34/t34_dead.mdl"
-
 ENT.AITEAM = 2
 
 ENT.MaxHealth = 1200
