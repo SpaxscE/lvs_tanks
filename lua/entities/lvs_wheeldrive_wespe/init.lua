@@ -41,7 +41,7 @@ function ENT:MakeProjectile()
 	projectile:SetAttacker( IsValid( Driver ) and Driver or self )
 	projectile:SetEntityFilter( self:GetCrosshairFilterEnts() )
 	projectile:SetSpeed( Muzzle.Ang:Forward() * 4000 )
-	projectile:SetDamage( 6000 )
+	projectile:SetDamage( 2000 )
 	projectile.UpdateTrajectory = function( bomb )
 		bomb:SetSpeed( bomb:GetForward() * 4000 )
 	end
