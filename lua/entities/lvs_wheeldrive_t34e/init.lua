@@ -20,14 +20,4 @@ function ENT:MakeSoundEmitters()
 	self.SNDTurret = self:AddSoundEmitter( self:WorldToLocal( Muzzle.Pos ), "lvs/vehicles/t34/cannon_fire1.wav", "lvs/vehicles/t34/cannon_fire1.wav" )
 	self.SNDTurret:SetSoundLevel( 95 )
 	self.SNDTurret:SetParent( self, ID )
-
-	local DriverSeat = self:GetDriverSeat()
-	if IsValid( DriverSeat ) then
-		DriverSeat:SetCameraDistance( -0.5 )
-	end
-
-	local GunnerSeat = self:GetGunnerSeat()
-	if IsValid( GunnerSeat ) then
-		GunnerSeat:SetCameraDistance( -0.5 )
-	end
 end
