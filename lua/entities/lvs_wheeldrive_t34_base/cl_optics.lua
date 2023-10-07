@@ -52,7 +52,7 @@ function ENT:PaintOptics( Pos2D, Col, PodIndex, Type )
 	if Type == 1 then
 		self:DrawRotatedText( "MG", Pos2D.x + 30, Pos2D.y + 30, "LVS_FONT_PANEL", Color(0,0,0,220), 0)
 	else
-		self:DrawRotatedText( Type == 3 and "HE" or "AP", Pos2D.x + 30, Pos2D.y + 30, "LVS_FONT_PANEL", Color(0,0,0,220), 0)
+		self:DrawRotatedText( Type == 3 and "ОФ" or "БР", Pos2D.x + 30, Pos2D.y + 30, "LVS_FONT_PANEL", Color(0,0,0,220), 0)
 	end
 
 	local H05 = ScrH() * 0.5
