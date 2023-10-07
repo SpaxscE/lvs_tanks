@@ -10,7 +10,10 @@ function ENT:TankViewOverride( ply, pos, angles, fov, pod )
 		if Muzzle then
 			pos =  Muzzle.Pos + Muzzle.Ang:Up() * 5 - Muzzle.Ang:Forward() * 32 - Muzzle.Ang:Right() * 5
 		end
+	end
 
+	if pod ~= self:GetDriverSeat() and not pod:GetThirdPersonMode() then
+		pod:SetThirdPersonMode( true )
 	end
 
 	return pos, angles, fov
