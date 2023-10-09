@@ -57,6 +57,10 @@ function ENT:MakeProjectile()
 		bomb:SetSpeed( bomb:GetForward() * 4000 )
 	end
 
+	if projectile.SetMaskSolid then
+		projectile:SetMaskSolid( true )
+	end
+
 	self._ProjectileEntity = projectile
 end
 
