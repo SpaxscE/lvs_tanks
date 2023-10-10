@@ -15,7 +15,7 @@ function ENT:OnSpawn( PObj )
 	self:MakeWeakSpots()
 	self:MakeSoundEmitters()
 
-	self:AddEngine( Vector(-55.66,-10,50), Angle(0,180,0) )
+	self:AddEngine( Vector(-55,0,60), Angle(0,180,0) )
 end
 
 function ENT:MakeDriverSeat()
@@ -79,7 +79,7 @@ end
 
 function ENT:MakeWeakSpots()
 	-- fuel tank
-	self:AddFuelTank( Vector(-75,0,20), Angle(0,0,0), 600, LVS.FUELTYPE_PETROL, Vector(-10,-30,0),Vector(10,30,40) )
+	self:AddFuelTank( Vector(-90,0,15), Angle(0,0,0), 600, LVS.FUELTYPE_PETROL, Vector(-10,-30,0),Vector(10,30,35) )
 
 	-- driver viewport weakstop
 	self:AddDriverViewPort( Vector(71.52,18.44,54.3), Angle(0,0,0), Vector(-2,-7,-2), Vector(2,7,2) )
