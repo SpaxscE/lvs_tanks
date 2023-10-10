@@ -11,15 +11,7 @@ ENT.OpticsPodIndex = {
 local axis = Material( "lvs/axis.png" )
 local tri1 = Material( "lvs/triangle1.png" )
 local tri2 = Material( "lvs/triangle2.png" )
-local Circles = {
-	[1] = {r = 0, col = Color(0,0,0,100)},
-	[2] = {r = -1, col = Color(0,0,0,92.5)},
-	[3] = {r = -2, col = Color(0,0,0,75)},
-	[4] = {r = -3, col = Color(0,0,0,60)},
-	[5] = {r = -4, col = Color(0,0,0,45)},
-	[6] = {r = -5, col = Color(0,0,0,30)},
-	[7] = {r = -6, col = Color(0,0,0,15)},
-}
+local scope = Material( "lvs/scope.png" )
 
 function ENT:PaintOptics( Pos2D, Col, PodIndex, Type )
 	surface.SetDrawColor( 255, 255, 255, 5 )
@@ -50,24 +42,19 @@ function ENT:PaintOptics( Pos2D, Col, PodIndex, Type )
 	end
 
 	if Type == 1 then
-		self:DrawRotatedText( "MG", Pos2D.x + 30, Pos2D.y + 30, "LVS_FONT_PANEL", Color(0,0,0,220), 0)
+		self:DrawRotatedText( "ДТ", Pos2D.x + 30, Pos2D.y + 30, "LVS_FONT_PANEL", Color(0,0,0,220), 0)
 	else
 		self:DrawRotatedText( Type == 3 and "ОФ" or "БР", Pos2D.x + 30, Pos2D.y + 30, "LVS_FONT_PANEL", Color(0,0,0,220), 0)
 	end
 
 	local H05 = ScrH() * 0.5
 
-	for i = 1, #Circles do
-		local data = Circles[ i ]
-		local radius = H05 + data.r
-		local segmentdist = 360 / ( math.pi * radius / 2 )
+	local diameter = ScrH()
+	local radius = H05
 
-		for a = 0, 360, segmentdist do
-			surface.SetDrawColor( data.col )
-
-			surface.DrawLine( Pos2D.x - math.sin( math.rad( a ) ) * radius, Pos2D.y + math.cos( math.rad( a ) ) * radius, Pos2D.x - math.sin( math.rad( a + segmentdist ) ) * radius, Pos2D.y + math.cos( math.rad( a + segmentdist ) ) * radius )
-		end
-	end
+	surface.SetMaterial( scope )
+	surface.SetDrawColor( 0, 0, 0, 50 )
+	surface.DrawTexturedRect( Pos2D.x - radius, Pos2D.y - radius, diameter, diameter )
 
 	local Ro = math.min(self:WorldToLocal( self:GetEyeTrace().HitPos ):Length() / 50000,1) * 90
 
