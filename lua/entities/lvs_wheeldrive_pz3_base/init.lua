@@ -17,7 +17,7 @@ function ENT:OnSpawn( PObj )
 	self:MakeWeakSpots()
 	self:MakeSoundEmitters()
 
-	self:AddEngine( Vector(-55.66,-10,50), Angle(0,180,0) )
+	self:AddEngine( Vector(-40,0,53), Angle(0,180,0) )
 end
 
 function ENT:MakeDriverSeat()
