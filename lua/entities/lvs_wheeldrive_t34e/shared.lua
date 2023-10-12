@@ -25,6 +25,8 @@ ENT.MaxVelocityReverse = 100
 
 ENT.TransGears = 3
 
+ENT.lvsShowInSpawner = true
+
 function ENT:InitWeapons()
 	-- coaxial machinegun
 	local weapon = {}

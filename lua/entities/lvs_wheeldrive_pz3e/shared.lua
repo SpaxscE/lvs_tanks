@@ -14,6 +14,8 @@ ENT.MDL_DESTROYED = "models/diggercars/pz3/pz3_dead.mdl"
 
 ENT.CannonArmorPenetration = 4000
 
+ENT.lvsShowInSpawner = true
+
 function ENT:InitWeapons()
 	-- coaxial machinegun
 	local weapon = {}
