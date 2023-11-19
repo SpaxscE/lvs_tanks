@@ -17,6 +17,8 @@ ENT.CannonArmorPenetration = 11200
 ENT.lvsShowInSpawner = true
 
 function ENT:InitWeapons()
+	local COLOR_WHITE = Color(255,255,255,255)
+
 	-- coaxial machinegun
 	local weapon = {}
 	weapon.Icon = Material("lvs/weapons/mg.png")
@@ -74,7 +76,7 @@ function ENT:InitWeapons()
 
 			local MuzzlePos2D = traceTurret.HitPos:ToScreen() 
 
-			ent:PaintCrosshairCenter( MuzzlePos2D, Col )
+			ent:PaintCrosshairCenter( MuzzlePos2D, COLOR_WHITE )
 			ent:LVSPaintHitMarker( MuzzlePos2D )
 		end
 	end
@@ -176,9 +178,9 @@ function ENT:InitWeapons()
 			local MuzzlePos2D = traceTurret.HitPos:ToScreen() 
 
 			if ent:GetUseHighExplosive() then
-				ent:PaintCrosshairSquare( MuzzlePos2D, Col )
+				ent:PaintCrosshairSquare( MuzzlePos2D, COLOR_WHITE )
 			else
-				ent:PaintCrosshairOuter( MuzzlePos2D, Col )
+				ent:PaintCrosshairOuter( MuzzlePos2D, COLOR_WHITE )
 			end
 
 			ent:LVSPaintHitMarker( MuzzlePos2D )

@@ -77,6 +77,8 @@ ENT.ExhaustPositions = {
 }
 
 function ENT:InitWeapons()
+	local COLOR_WHITE = Color(255,255,255,255)
+
 	local weapon = {}
 	weapon.Icon = Material("lvs/weapons/mg.png")
 	weapon.Ammo = 1000
@@ -133,7 +135,7 @@ function ENT:InitWeapons()
 
 			local MuzzlePos2D = traceTurret.HitPos:ToScreen() 
 
-			ent:PaintCrosshairCenter( MuzzlePos2D, Col )
+			ent:PaintCrosshairCenter( MuzzlePos2D, COLOR_WHITE )
 			ent:LVSPaintHitMarker( MuzzlePos2D )
 		end
 	end
@@ -201,7 +203,7 @@ function ENT:InitWeapons()
 
 			local MuzzlePos2D = traceTurret.HitPos:ToScreen() 
 
-			ent:PaintCrosshairOuter( MuzzlePos2D, Col )
+			ent:PaintCrosshairOuter( MuzzlePos2D, COLOR_WHITE )
 			ent:LVSPaintHitMarker( MuzzlePos2D )
 		end
 	end
