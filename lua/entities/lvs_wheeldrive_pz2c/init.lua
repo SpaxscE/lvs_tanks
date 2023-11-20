@@ -88,4 +88,7 @@ function ENT:OnSpawn( PObj )
 	-- ammo rack weakspot
 	self:AddAmmoRack( Vector(8.5,-15,52), Vector(12,0,60), Angle(0,0,0), Vector(-21,-6,-3), Vector(21,6,3) )
 	self:AddAmmoRack( Vector(-3,33,52), Vector(12,0,60), Angle(0,0,0), Vector(-21,-6,-3), Vector(21,6,3) )
+
+	-- trailer hitch
+	self:AddTrailerHitch( Vector(-90.49,0,24.98), LVS.HITCHTYPE_MALE )
 end
