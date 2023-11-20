@@ -1,5 +1,6 @@
 include("shared.lua")
 include("sh_tracks.lua")
+include("sh_turret.lua")
 include("cl_attached_playermodels.lua")
 
 include("entities/lvs_tank_wheeldrive/modules/cl_tankview.lua")

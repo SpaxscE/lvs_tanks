@@ -1,9 +1,11 @@
 AddCSLuaFile( "shared.lua" )
 AddCSLuaFile( "cl_init.lua" )
 AddCSLuaFile( "sh_tracks.lua" )
+AddCSLuaFile( "sh_turret.lua" )
 AddCSLuaFile( "cl_attached_playermodels.lua" )
 include("shared.lua")
 include("sh_tracks.lua")
+include("sh_turret.lua")
 
 function ENT:OnSpawn( PObj )
 	local ID = self:LookupAttachment( "muzzle" )
@@ -32,6 +34,8 @@ function ENT:OnSpawn( PObj )
 		end
 	} )
 
+	-- trailer hitch
+	self:AddTrailerHitch( Vector(-104.17,0,26), LVS.HITCHTYPE_MALE )
 end
 
 function ENT:MakeProjectile()

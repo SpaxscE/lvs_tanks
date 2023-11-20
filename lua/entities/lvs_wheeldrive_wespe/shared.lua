@@ -95,15 +95,6 @@ function ENT:InitWeapons()
 		self:MakeProjectile()
 		self:FireProjectile()
 	end
-	weapon.OnThink = function( ent, active )
-		if ent:GetSelectedWeapon() ~= 1 then return end
-
-		local Angles = ent:WorldToLocalAngles( ent:GetAimVector():Angle() )
-		Angles:Normalize()
-
-		ent:SetPoseParameter("turret_yaw", -Angles.y )
-		ent:SetPoseParameter("turret_pitch", -Angles.p )
-	end
 	weapon.HudPaint = function( ent, X, Y, ply )
 		local Pos2D = ent:GetEyeTrace().HitPos:ToScreen()
 
@@ -119,5 +110,15 @@ function ENT:InitWeapons()
 	weapon.Delay = 0
 	weapon.HeatRateUp = 0
 	weapon.HeatRateDown = 0
+	weapon.OnSelect = function( ent, old, new  )
+		if ent.SetTurretEnabled then
+			ent:SetTurretEnabled( false )
+		end
+	end
+	weapon.OnDeselect = function( ent, old, new  )
+		if ent.SetTurretEnabled then
+			ent:SetTurretEnabled( true )
+		end
+	end
 	self:AddWeapon( weapon )
 end
