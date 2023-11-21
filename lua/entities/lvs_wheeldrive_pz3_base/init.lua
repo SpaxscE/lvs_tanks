@@ -18,6 +18,8 @@ function ENT:OnSpawn( PObj )
 	self:MakeSoundEmitters()
 
 	self:AddEngine( Vector(-40,0,53), Angle(0,180,0) )
+
+	self:AddTrailerHitch( Vector(-101,0,30), LVS.HITCHTYPE_MALE )
 end
 
 function ENT:MakeDriverSeat()
