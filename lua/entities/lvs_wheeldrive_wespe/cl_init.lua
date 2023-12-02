@@ -3,6 +3,12 @@ include("sh_tracks.lua")
 include("sh_turret.lua")
 include("cl_attached_playermodels.lua")
 
+function ENT:OnSpawn()
+	local Mins, Maxs = self:GetRenderBounds()
+
+	self:SetRenderBounds( Mins, Maxs, Vector( 25, 25, 25 ) )
+end
+
 include("entities/lvs_tank_wheeldrive/modules/cl_tankview.lua")
 function ENT:TankViewOverride( ply, pos, angles, fov, pod )
 	if ply == self:GetDriver() and not pod:GetThirdPersonMode() then
@@ -11,7 +17,7 @@ function ENT:TankViewOverride( ply, pos, angles, fov, pod )
 		local Muzzle = self:GetAttachment( ID )
 
 		if Muzzle then
-			pos =  Muzzle.Pos - Muzzle.Ang:Up() * 20 - Muzzle.Ang:Forward() * 60 - Muzzle.Ang:Right() * 12
+			pos =  Muzzle.Pos - Muzzle.Ang:Up() * 20 - Muzzle.Ang:Forward() * 80 - Muzzle.Ang:Right() * 12
 		end
 
 	end
