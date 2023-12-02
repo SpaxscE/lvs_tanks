@@ -4,7 +4,10 @@ ENT.Base = "lvs_wheeldrive_pz3_base"
 ENT.PrintName = "Panzer III [F]"
 ENT.Author = "Digger"
 ENT.Information = "Luna's Vehicle Script"
-ENT.Category = "[LVS] - Cars"
+ENT.Category = "[LVS] - Tanks"
+
+ENT.VehicleCategory = "Tanks"
+ENT.VehicleSubCategory = "Medium"
 
 ENT.Spawnable			= true
 ENT.AdminSpawnable		= false

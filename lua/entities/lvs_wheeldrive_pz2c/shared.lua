@@ -4,7 +4,10 @@ ENT.Base = "lvs_tank_wheeldrive"
 ENT.PrintName = "Panzer II [C]"
 ENT.Author = "Luna"
 ENT.Information = "Luna's Vehicle Script"
-ENT.Category = "[LVS] - Cars"
+ENT.Category = "[LVS] - Tanks"
+
+ENT.VehicleCategory = "Tanks"
+ENT.VehicleSubCategory = "Light"
 
 ENT.Spawnable			= true
 ENT.AdminSpawnable		= false
