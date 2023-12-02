@@ -17,6 +17,22 @@ function ENT:OnSpawn( PObj )
 	local DriverSeat = self:AddDriverSeat( Vector(0,0,40), Angle(0,-90,0) )
 	DriverSeat.HidePlayer = true
 
+
+	local DoorHandler = self:AddDoorHandler( "hatch3", Vector(-97.58,-0.13,71.44), Angle(0,0,0), Vector(-10,-30,-10), Vector(10,30,10), Vector(-10,-30,-10), Vector(10,30,10) )
+	DoorHandler:SetSoundOpen( "lvs/vehicles/generic/car_hood_open.wav" )
+	DoorHandler:SetSoundClose( "lvs/vehicles/generic/car_hood_close.wav" )
+	DoorHandler:LinkToSeat( DriverSeat )
+
+	local DoorHandler = self:AddDoorHandler( "hatch1", Vector(39.38,9.52,61.1), Angle(0,0,0), Vector(-10,-10,-10), Vector(10,10,10), Vector(-10,-10,-10), Vector(10,10,10) )
+	DoorHandler:SetSoundOpen( "lvs/vehicles/generic/car_hood_open.wav" )
+	DoorHandler:SetSoundClose( "lvs/vehicles/generic/car_hood_close.wav" )
+	DoorHandler:LinkToSeat( DriverSeat )
+
+	local DoorHandler = self:AddDoorHandler( "hatch2", Vector(63.96,9.55,52.78), Angle(0,0,0), Vector(-10,-10,-10), Vector(10,10,10), Vector(-10,-10,-10), Vector(10,10,10) )
+	DoorHandler:SetSoundOpen( "lvs/vehicles/generic/car_hood_open.wav" )
+	DoorHandler:SetSoundClose( "lvs/vehicles/generic/car_hood_close.wav" )
+
+
 	self:AddEngine( Vector(-55.66,-10,50), Angle(0,180,0) )
 	self:AddFuelTank( Vector(-75,0,20), Angle(0,0,0), 600, LVS.FUELTYPE_PETROL, Vector(-10,-30,0),Vector(10,30,40) )
 

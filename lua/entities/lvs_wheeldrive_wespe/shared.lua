@@ -9,7 +9,20 @@ ENT.Category = "[LVS] - Cars"
 ENT.Spawnable			= true
 ENT.AdminSpawnable		= false
 
-ENT.MDL = "models/diggercars/pz2/wespe.mdl"
+ENT.MDL = "models/diggercars/pz2/wespe_updated.mdl"
+ENT.MDL_DESTROYED = "models/diggercars/pz2/wespe_dead.mdl"
+
+ENT.GibModels = {
+	"models/diggercars/pz2/wespe_gib1.mdl",
+	"models/diggercars/pz2/wespe_gib2.mdl",
+	"models/diggercars/pz2/wespe_gib3.mdl",
+	"models/gibs/manhack_gib01.mdl",
+	"models/gibs/manhack_gib02.mdl",
+	"models/gibs/manhack_gib03.mdl",
+	"models/gibs/manhack_gib04.mdl",
+	"models/props_c17/canisterchunk01a.mdl",
+	"models/props_c17/canisterchunk01d.mdl",
+}
 
 ENT.AITEAM = 1
 

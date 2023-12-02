@@ -6,8 +6,8 @@ ENT.TurretAimRate = 15
 ENT.TurretRotationSound = "common/null.wav"
 
 ENT.TurretPitchPoseParameterName = "turret_pitch"
-ENT.TurretPitchMin = -40
-ENT.TurretPitchMax = 10
+ENT.TurretPitchMin = -45
+ENT.TurretPitchMax = 5
 ENT.TurretPitchMul = -1
 ENT.TurretPitchOffset = 0
 

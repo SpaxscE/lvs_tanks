@@ -121,10 +121,10 @@ else
 		}
 	}
 
-	ENT.TrackLeftSubMaterialID = 5
+	ENT.TrackLeftSubMaterialID = 4
 	ENT.TrackLeftSubMaterialMul = Vector(0,-0.0255,0)
 
-	ENT.TrackRightSubMaterialID = 4
+	ENT.TrackRightSubMaterialID = 3
 	ENT.TrackRightSubMaterialMul = Vector(0,-0.0255,0)
 
 	ENT.TrackPoseParameterLeft = "spin_wheels_left"
