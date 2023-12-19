@@ -7,7 +7,7 @@
 	"$phongexponenttexture" "models/diggercars/pz2/gun_exp"
 	"$phongboost"	"6"
 	"$phongfresnelranges"	"[0.05 0.5 1]"
-	"$colorfix" "{255 255 255}"
+	"$colorfix" "{200 205 210}"
 	"Proxies"
 	{
 		"Equals"
