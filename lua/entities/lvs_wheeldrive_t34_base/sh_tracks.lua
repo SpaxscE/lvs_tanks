@@ -7,30 +7,30 @@ if SERVER then
 	function ENT:TracksCreate( PObj )
 		local WheelModel = "models/props_vehicles/tire001b_truck.mdl"
 
-		local L1 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_LEFT, pos = Vector(90,50,50), mdl = WheelModel } )
-		local L2 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_LEFT, pos = Vector(60,50,32), mdl = WheelModel } )
-		local L3 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_LEFT, pos = Vector(20,50,32), mdl = WheelModel } )
-		local L4 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_LEFT, pos = Vector(-20,50,31), mdl = WheelModel } )
-		local L5 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_LEFT, pos = Vector(-60,50,30), mdl = WheelModel } )
-		local L6 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_LEFT, pos = Vector(-90,50,45), mdl = WheelModel } )
+		local L1 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_LEFT, pos = Vector(90,50,38), mdl = WheelModel } )
+		local L2 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_LEFT, pos = Vector(60,50,38), mdl = WheelModel } )
+		local L3 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_LEFT, pos = Vector(20,50,38), mdl = WheelModel } )
+		local L4 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_LEFT, pos = Vector(-20,50,38), mdl = WheelModel } )
+		local L5 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_LEFT, pos = Vector(-60,50,38), mdl = WheelModel } )
+		local L6 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_LEFT, pos = Vector(-90,50,38), mdl = WheelModel } )
 		local LeftWheelChain = self:CreateWheelChain( {L1, L2, L3, L4, L5, L6} )
 		self:SetTrackDriveWheelLeft( L4 )
 
-		local R1 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_RIGHT, pos = Vector(90,-50,50), mdl = WheelModel } )
-		local R2 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_RIGHT, pos = Vector(60,-50,32), mdl = WheelModel } )
-		local R3 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_RIGHT, pos = Vector(20,-50,32), mdl = WheelModel } )
-		local R4 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_RIGHT, pos = Vector(-20,-50,31), mdl = WheelModel } )
-		local R5 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_RIGHT, pos = Vector(-60,-50,30), mdl = WheelModel } )
-		local R6 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_RIGHT, pos = Vector(-90,-50,45), mdl = WheelModel } )
+		local R1 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_RIGHT, pos = Vector(90,-50,38), mdl = WheelModel } )
+		local R2 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_RIGHT, pos = Vector(60,-50,38), mdl = WheelModel } )
+		local R3 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_RIGHT, pos = Vector(20,-50,38), mdl = WheelModel } )
+		local R4 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_RIGHT, pos = Vector(-20,-50,38), mdl = WheelModel } )
+		local R5 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_RIGHT, pos = Vector(-60,-50,38), mdl = WheelModel } )
+		local R6 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_RIGHT, pos = Vector(-90,-50,38), mdl = WheelModel } )
 		local RightWheelChain = self:CreateWheelChain( {R1, R2, R3, R4, R5, R6} )
 		self:SetTrackDriveWheelRight( R4 )
 
-		local LeftTracksArmor = self:AddArmor( Vector(0,50,40), Angle(0,0,0), Vector(-120,-15,-40), Vector(120,15,5), 600, self.FrontArmor )
+		local LeftTracksArmor = self:AddArmor( Vector(0,50,40), Angle(0,0,0), Vector(-120,-15,-40), Vector(120,15,10), 600, self.FrontArmor )
 		LeftTracksArmor.OnDestroyed = LeftWheelChain.OnDestroyed
 		LeftTracksArmor.OnRepaired = LeftWheelChain.OnRepaired
 		LeftTracksArmor:SetLabel( "Tracks" )
 
-		local RightTracksArmor = self:AddArmor( Vector(0,-50,40), Angle(0,0,0), Vector(-120,-15,-40), Vector(120,15,5), 600, self.FrontArmor )
+		local RightTracksArmor = self:AddArmor( Vector(0,-50,40), Angle(0,0,0), Vector(-120,-15,-40), Vector(120,15,10), 600, self.FrontArmor )
 		RightTracksArmor.OnDestroyed = RightWheelChain.OnDestroyed
 		RightTracksArmor.OnRepaired = RightWheelChain.OnRepaired
 		RightTracksArmor:SetLabel( "Tracks" )
