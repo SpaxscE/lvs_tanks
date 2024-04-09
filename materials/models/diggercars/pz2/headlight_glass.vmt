@@ -1,7 +1,6 @@
 "VertexlitGeneric"
 {
 	"$basetexture" "models/DiggerCars/shared/black"
-	"$basetexture" "models/diggercars/bmw_m5e34/headlight_glass_nm"
 	"$envmap" "env_cubemap"
 	"$envmaptint" "[0.4 0.4 0.4]"
 	"$normalmapalphaenvmapmask" "1"
