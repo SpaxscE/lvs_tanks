@@ -1,2 +1,3 @@
+name=Tanks
 version=75
-url=https://raw.githubusercontent.com/SpaxscE/lvs_starwars/main/data_static/lvs/3047221988.txt
+url=https://raw.githubusercontent.com/SpaxscE/lvs_tanks/main/data_static/lvs/3047221988.txt
