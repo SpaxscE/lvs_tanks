@@ -81,7 +81,7 @@ end
 
 function ENT:MakeWeakSpots()
 	-- fuel tank
-	self:AddFuelTank( Vector(-90,0,15), Angle(0,0,0), 600, LVS.FUELTYPE_PETROL, Vector(-10,-30,0),Vector(10,30,35) )
+	self:AddFuelTank( Vector(-85,0,15), Angle(0,0,0), 600, LVS.FUELTYPE_PETROL, Vector(-10,-30,0),Vector(10,30,35) )
 
 	-- driver viewport weakstop
 	self:AddDriverViewPort( Vector(71.52,18.44,54.3), Angle(0,0,0), Vector(-2,-7,-2), Vector(2,7,2) )
