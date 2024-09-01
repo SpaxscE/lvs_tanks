@@ -26,11 +26,18 @@ function ENT:InitWeapons()
 	local weapon = {}
 	weapon.Icon = Material("lvs/weapons/mg.png")
 	weapon.Ammo = 1000
-	weapon.Delay = 0.1
-	weapon.HeatRateUp = 0.2
+	weapon.Delay = 0.05
+	weapon.HeatRateUp = 0.1
 	weapon.HeatRateDown = 0.25
 	weapon.Attack = function( ent )
-		local ID = ent:LookupAttachment( "muzzle_mg1" )
+
+		ent._MuzzleID = ent._MuzzleID and ent._MuzzleID + 1 or 1
+
+		if ent._MuzzleID > 2 then
+			ent._MuzzleID = 1
+		end
+
+		local ID = ent:LookupAttachment( "muzzle_mg"..ent._MuzzleID )
 
 		local Muzzle = ent:GetAttachment( ID )
 
@@ -39,7 +46,7 @@ function ENT:InitWeapons()
 		local bullet = {}
 		bullet.Src 	= Muzzle.Pos
 		bullet.Dir 	= Muzzle.Ang:Up()
-		bullet.Spread 	= Vector(0.015,0.015,0.015)
+		bullet.Spread 	= Vector(0.025,0.025,0.025)
 		bullet.TracerName = "lvs_tracer_yellow"
 		bullet.Force	= 10
 		bullet.HullSize 	= 0

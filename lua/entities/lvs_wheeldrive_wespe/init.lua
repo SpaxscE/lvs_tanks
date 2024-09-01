@@ -50,6 +50,15 @@ function ENT:OnSpawn( PObj )
 		end
 	} )
 
+	-- front
+	self:AddArmor( Vector(55,0,33), Angle(0,0,0), Vector(-40,-32,-29), Vector(40,32,29), 600, self.FrontArmor )
+
+	-- rear
+	self:AddArmor( Vector(-45,0,33), Angle(0,0,0), Vector(-60,-45,-29), Vector(60,45,29), 500, self.RearArmor )
+
+	-- turret
+	self:AddArmor( Vector(-45,0,91), Angle(0,0,0), Vector(-60,-45,-29), Vector(60,45,29), 400, self.TurretArmor )
+
 	-- trailer hitch
 	self:AddTrailerHitch( Vector(-104.17,0,26), LVS.HITCHTYPE_MALE )
 end

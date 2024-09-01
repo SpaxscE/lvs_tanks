@@ -10,7 +10,7 @@ ENT.MaxHealth = 1100
 
 --damage system
 ENT.DSArmorIgnoreForce = 1000
-ENT.FrontArmor = 2500
+ENT.FrontArmor = 2000
 ENT.SideArmor = 1000
 ENT.TurretArmor = 2000
 ENT.RearArmor = 500

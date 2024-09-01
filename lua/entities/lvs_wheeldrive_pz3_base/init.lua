@@ -77,10 +77,10 @@ function ENT:MakeArmor()
 	self:AddArmor( Vector(100,0,37), Angle(112,0,0), Vector(-5,-39,0), Vector(22,39,10), 1300, self.FrontArmor )
 
 	-- side armor left
-	self:AddArmor( Vector(20,24,51), Angle(0,0,0), Vector(-82,5,-20), Vector(50,15,13), 800, self.SideArmor )
+	self:AddArmor( Vector(20,24,51), Angle(0,0,0), Vector(-82,5,-20), Vector(50,15,13), 800, self.FrontArmor )
 
 	-- side armor right
-	self:AddArmor( Vector(20,-24,51), Angle(0,0,0), Vector(-82,-15,-20), Vector(50,-5,13), 800, self.SideArmor )
+	self:AddArmor( Vector(20,-24,51), Angle(0,0,0), Vector(-82,-15,-20), Vector(50,-5,13), 800, self.FrontArmor )
 
 	-- top armor
 	self:AddArmor( Vector(20,0,51), Angle(0,0,0), Vector(-82,-30,-20), Vector(50,30,13), 600, self.RearArmor )

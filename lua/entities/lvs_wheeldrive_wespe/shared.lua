@@ -32,7 +32,10 @@ ENT.AITEAM = 1
 ENT.MaxHealth = 800
 
 --damage system
-ENT.DSArmorIgnoreForce = 1000
+ENT.DSArmorIgnoreForce = 800
+ENT.FrontArmor = 1200
+ENT.TurretArmor = 200
+ENT.RearArmor = 600
 
 ENT.SteerSpeed = 1
 ENT.SteerReturnSpeed = 2
