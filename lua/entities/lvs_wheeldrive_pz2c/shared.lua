@@ -37,6 +37,8 @@ ENT.MaxVelocity = 450
 ENT.MaxVelocityReverse = 150
 
 ENT.EngineCurve = 0.1
+ENT.EngineCurveBoostLow = 2
+
 ENT.EngineTorque = 300
 
 ENT.TransMinGearHoldTime = 0.1

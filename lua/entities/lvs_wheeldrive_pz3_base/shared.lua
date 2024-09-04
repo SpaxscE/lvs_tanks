@@ -8,6 +8,8 @@ ENT.AITEAM = 1
 
 ENT.MaxHealth = 1100
 
+ENT.EngineCurveBoostLow = 2
+
 --damage system
 ENT.DSArmorIgnoreForce = 1000
 ENT.FrontArmor = 2000
