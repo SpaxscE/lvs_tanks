@@ -8,8 +8,6 @@ ENT.AITEAM = 1
 
 ENT.MaxHealth = 1100
 
-ENT.EngineCurveBoostLow = 2
-
 --damage system
 ENT.DSArmorIgnoreForce = 1000
 ENT.FrontArmor = 2000
@@ -28,6 +26,8 @@ ENT.MaxVelocity = 700
 ENT.MaxVelocityReverse = 200
 
 ENT.EngineCurve = 0.1
+ENT.EngineCurveBoostLow = 1.5
+
 ENT.EngineTorque = 210
 
 ENT.TransMinGearHoldTime = 0.1

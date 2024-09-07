@@ -416,7 +416,7 @@ function ENT:AddTopGunnerWeapons()
 
 		local pod = base:GetTopGunnerSeat()
 
-		if not base:GetAI() and (not IsValid( pod ) or not IsValid( pod:GetDriver() )) then return end
+		if not ent:GetAI() and (not IsValid( pod ) or not IsValid( pod:GetDriver() )) then return end
 
 		local Ang = base:WorldToLocalAngles( ent:GetAimVector():Angle() ) - Angle(0,base:GetTurretYaw(),0)
 		Ang:Normalize()
