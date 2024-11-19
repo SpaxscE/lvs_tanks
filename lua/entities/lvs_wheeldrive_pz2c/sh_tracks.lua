@@ -44,7 +44,7 @@ if SERVER then
 			},
 			Wheels = { R1, L1, R2, L2 },
 			Suspension = {
-				Height = 20,
+				Height = 15,
 				MaxTravel = 15,
 				ControlArmLength = 150,
 				SpringConstant = 20000,
@@ -63,7 +63,7 @@ if SERVER then
 			},
 			Wheels = { R3, L3 },
 			Suspension = {
-				Height = 20,
+				Height = 15,
 				MaxTravel = 15,
 				ControlArmLength = 150,
 				SpringConstant = 20000,
@@ -83,7 +83,7 @@ if SERVER then
 			},
 			Wheels = { L4, R4, R5, L5 },
 			Suspension = {
-				Height = 20,
+				Height = 15,
 				MaxTravel = 15,
 				ControlArmLength = 150,
 				SpringConstant = 20000,
@@ -143,7 +143,7 @@ else
 			local data = {
 				Attachment = {
 					name = "vehicle_suspension_"..LR.."_"..i,
-					toGroundDistance = 42,
+					toGroundDistance = 45,
 					traceLength = 100,
 				},
 				PoseParameter = {

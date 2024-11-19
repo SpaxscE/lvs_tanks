@@ -1,0 +1,34 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/diggercars/t34/41_gun"
+	"$bumpmap" "models/diggercars/t34/41_gun_nm"
+
+	"$detail" "models/diggercars/camos/ussr_camo_blue_steel"
+	"$detailblendmode" "4"
+	"$detailscale" "1"
+	
+	"$normalmapalphaenvmapmask" 1
+	"$halflambert" 1
+
+	"$phong" "1" 
+	"$phongboost" "5" 
+	"$phongfresnelranges" "[.3 .5 1]" 
+	"$phongexponent" 20
+
+	"$envmap" "env_cubemap"
+	"$envmaptint" "[0.2 0.2 0.2]"
+	"$envmapfrensel" "1"
+	"$colorfix" "{255 255 255}"
+	"Proxies"
+	{
+		"Equals"
+		{
+			srcVar1 $colorfix
+			resultVar	$color
+		}
+	}
+}
+
+
+
+

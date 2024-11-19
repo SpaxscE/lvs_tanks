@@ -1,13 +1,24 @@
-"VertexLitGeneric"
+"VertexlitGeneric"
 {
 	"$basetexture" "models/diggercars/pz3/f_gun"
-	"$bumpmap" "models/diggercars/pz3/f_gun_nm"
-	"$phong" "1"
-//	$phongexponent 33
-	"$phongexponenttexture" "models/diggercars/pz3/f_gun_exp"
-	"$phongboost"	"6"
-	"$phongfresnelranges"	"[0.05 0.5 1]"
-	"$colorfix" "{220 225 230}"
+	"$bumpmap" "models/diggercars/pz3/f_gun_nm"	
+	
+	"$detail" "models/diggercars/camos/ger_grey_lvs"
+	"$detailblendmode" "4"
+	"$detailscale" "4"
+	
+	"$normalmapalphaenvmapmask" 1
+	"$halflambert" 1
+
+	"$phong" "1" 
+	"$phongboost" "5" 
+	"$phongfresnelranges" "[.3 .5 1]" 
+	"$phongexponent" 20
+
+	"$envmap" "env_cubemap"
+	"$envmaptint" "[0.2 0.2 0.2]"
+	"$envmapfrensel" "1"
+	"$colorfix" "{255 255 255}"
 	"Proxies"
 	{
 		"Equals"

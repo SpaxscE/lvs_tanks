@@ -103,10 +103,9 @@ else
 		["$phong"] = "1",
 		["$alphatest"] = "1",
 		["$nocull"] = "1",
-		["$phongboost"] = "0.2", 
-		["$phongexponent"] = "0.2",
-		["$phongexponenttexture"] = "models/diggercars/pz3/tracks_exp",
-		["$phongfresnelranges"] = "[0.05 0.5 1]",
+		["$phongboost"] = "0.5", 
+		["$phongexponent"] = "10",
+		["$phongfresnelranges"] = "[1 1 1]",
 		["$translate"] = "[0.0 0.0 0.0]",
 		["$colorfix"] = "{255 255 255}",
 		["Proxies"] = {
