@@ -2,6 +2,10 @@
 {
 	"$basetexture" "models/diggercars/pz2/turret"
 	"$bumpmap" "models/diggercars/pz2/turret_nm"
+
+	"$detail" "models/props_pipes/guttermetal01a"
+	"$detailblendmode" "4"
+	"$detailscale" "2"
 	
 	"$normalmapalphaenvmapmask" 1
 	"$halflambert" 1
