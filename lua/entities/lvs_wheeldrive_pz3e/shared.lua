@@ -49,6 +49,7 @@ function ENT:InitWeapons()
 		bullet.Spread 	= Vector(0.025,0.025,0.025)
 		bullet.TracerName = "lvs_tracer_yellow"
 		bullet.Force	= 10
+		bullet.EnableBallistics = true
 		bullet.HullSize 	= 0
 		bullet.Damage	= 25
 		bullet.Velocity = 30000
@@ -131,6 +132,7 @@ function ENT:InitWeapons()
 		bullet.Src 	= Muzzle.Pos
 		bullet.Dir 	= Muzzle.Ang:Up()
 		bullet.Spread = Vector(0,0,0)
+		bullet.EnableBallistics = true
 
 		if ent:GetUseHighExplosive() then
 			bullet.Force	= 250
@@ -283,6 +285,7 @@ function ENT:AddGunnerWeapons()
 		bullet.Spread 	= Vector(0.015,0.015,0.015)
 		bullet.TracerName = "lvs_tracer_yellow"
 		bullet.Force	= 10
+		bullet.EnableBallistics = true
 		bullet.HullSize 	= 0
 		bullet.Damage	= 25
 		bullet.Velocity = 30000

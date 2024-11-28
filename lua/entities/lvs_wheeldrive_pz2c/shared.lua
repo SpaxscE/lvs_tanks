@@ -105,6 +105,7 @@ function ENT:InitWeapons()
 		bullet.Spread 	= Vector( 0.03,  0.03, 0.03 )
 		bullet.TracerName = "lvs_tracer_yellow"
 		bullet.Force	= 10
+		bullet.EnableBallistics = true
 		bullet.HullSize 	= 0
 		bullet.Damage	= 25
 		bullet.Velocity = 30000
@@ -171,6 +172,7 @@ function ENT:InitWeapons()
 		bullet.Spread 	= Vector(0.015,0.015,0.015)
 		bullet.TracerName = "lvs_tracer_autocannon"
 		bullet.Force	= ent.CannonArmorPenetration
+		bullet.EnableBallistics = true
 		bullet.HullSize 	= 0
 		bullet.Damage	= 100
 		bullet.Velocity = 14000
