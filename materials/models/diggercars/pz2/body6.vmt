@@ -1,7 +1,11 @@
 "VertexlitGeneric"
 {
 	"$basetexture" "models/diggercars/pz2/body"
-	"$bumpmap" "models/diggercars/pz2/body_nm"		
+	"$bumpmap" "models/diggercars/pz2/body_nm"	
+
+	"$detail" "models/props_pipes/guttermetal01a"
+	"$detailblendmode" "4"
+	"$detailscale" "4"
 	
 	"$normalmapalphaenvmapmask" 1
 	"$halflambert" 1
