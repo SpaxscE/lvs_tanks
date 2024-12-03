@@ -81,7 +81,7 @@ function ENT:InitWeapons()
 		if Muzzle then
 			local traceTurret = util.TraceLine( {
 				start = Muzzle.Pos,
-				endpos = Muzzle.Pos + Muzzle.Ang:Up() * 50000,
+				endpos = Muzzle.Pos + Muzzle.Ang:Forward() * 50000,
 				filter = ent:GetCrosshairFilterEnts()
 			} )
 
