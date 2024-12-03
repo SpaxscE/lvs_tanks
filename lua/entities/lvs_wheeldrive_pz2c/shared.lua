@@ -31,6 +31,10 @@ ENT.SideArmor = 1000
 ENT.TurretArmor = 2000
 ENT.RearArmor = 500
 
+-- ballistics
+ENT.ProjectileVelocityCoaxial = 15000
+ENT.ProjectileVelocityArmorPiercing = 14000
+
 ENT.SteerSpeed = 1
 ENT.SteerReturnSpeed = 2
 
@@ -108,7 +112,7 @@ function ENT:InitWeapons()
 		bullet.EnableBallistics = true
 		bullet.HullSize 	= 0
 		bullet.Damage	= 25
-		bullet.Velocity = 15000
+		bullet.Velocity = ent.ProjectileVelocityCoaxial
 		bullet.Attacker 	= ent:GetDriver()
 		ent:LVSFireBullet( bullet )
 
@@ -150,6 +154,9 @@ function ENT:InitWeapons()
 	weapon.OnOverheat = function( ent )
 		ent:EmitSound("lvs/overheat.wav")
 	end
+	weapon.OnSelect = function( ent )
+		ent:TurretUpdateBallistics( ent.ProjectileVelocityCoaxial, "muzzle_3" )
+	end
 	self:AddWeapon( weapon )
 
 
@@ -175,7 +182,7 @@ function ENT:InitWeapons()
 		bullet.EnableBallistics = true
 		bullet.HullSize 	= 0
 		bullet.Damage	= 100
-		bullet.Velocity = 14000
+		bullet.Velocity = ent.ProjectileVelocityArmorPiercing
 		bullet.Attacker 	= ent:GetDriver()
 		ent:LVSFireBullet( bullet )
 
@@ -218,6 +225,9 @@ function ENT:InitWeapons()
 	end
 	weapon.OnOverheat = function( ent )
 		ent:EmitSound("lvs/vehicles/222/cannon_overheat.wav")
+	end
+	weapon.OnSelect = function( ent )
+		ent:TurretUpdateBallistics( ent.ProjectileVelocityHighExplosive, "muzzle_4" )
 	end
 	self:AddWeapon( weapon )
 
