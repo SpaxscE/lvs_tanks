@@ -67,7 +67,7 @@ function ENT:PaintOptics( Pos2D, Col, PodIndex, Type )
 	local ScrW = ScrW()
 	local ScrH = ScrH()
 
-	local diameter = ScrH
+	local diameter = ScrH + 64
 	local radius = diameter * 0.5
 
 	local Ro = math.min(self:WorldToLocal( self:GetEyeTrace().HitPos ):Length() / 50000,1) * 90
