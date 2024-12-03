@@ -15,6 +15,11 @@ ENT.SideArmor = 2000
 ENT.TurretArmor = 2500
 ENT.RearArmor = 500
 
+-- ballistics
+ENT.ProjectileVelocityCoaxial = 15000
+ENT.ProjectileVelocityHighExplosive = 13000
+ENT.ProjectileVelocityArmorPiercing = 16000
+
 ENT.SteerSpeed = 1
 ENT.SteerReturnSpeed = 2
 

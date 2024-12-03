@@ -2,7 +2,7 @@ include("shared.lua")
 include("sh_turret.lua")
 include("sh_tracks.lua")
 include("cl_tankview.lua")
-include("cl_optics.lua")
+include("entities/lvs_wheeldrive_dodtiger/cl_optics.lua")
 
 local switch = Material("lvs/weapons/change_ammo.png")
 local AP = Material("lvs/weapons/bullet_ap.png")

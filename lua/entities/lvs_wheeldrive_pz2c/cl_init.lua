@@ -2,7 +2,9 @@ include("shared.lua")
 include("sh_turret.lua")
 include("sh_tracks.lua")
 include("cl_tankview.lua")
-include("cl_optics.lua")
+include("entities/lvs_wheeldrive_dodtiger/cl_optics.lua")
+
+ENT.OpticsProjectileSize = 2
 
 function ENT:OnEngineActiveChanged( Active )
 	if Active then

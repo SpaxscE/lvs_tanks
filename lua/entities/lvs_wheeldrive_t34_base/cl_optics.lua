@@ -1,4 +1,6 @@
 
+include("entities/lvs_wheeldrive_dodtiger/cl_optics.lua")
+
 ENT.OpticsFov = 30
 ENT.OpticsEnable = true
 ENT.OpticsZoomOnly = true
@@ -8,12 +10,17 @@ ENT.OpticsPodIndex = {
 	[1] = true,
 }
 
-local axis = Material( "lvs/axis.png" )
+ENT.OpticsCrosshairMaterial = Material( "lvs/circle_filled.png" )
+ENT.OpticsCrosshairColor = Color(0,0,0,150)
+ENT.OpticsCrosshairSize = 4
+
+local circle = Material( "lvs/circle_hollow.png" )
 local tri1 = Material( "lvs/triangle1.png" )
 local tri2 = Material( "lvs/triangle2.png" )
-local scope = Material( "lvs/scope.png" )
+local axis = Material( "lvs/axis.png" )
+local scope = Material( "lvs/scope_viewblocked.png" )
 
-function ENT:PaintOptics( Pos2D, Col, PodIndex, Type )
+function ENT:PaintOpticsCrosshair( Pos2D )
 	surface.SetDrawColor( 255, 255, 255, 5 )
 	surface.SetMaterial( tri2 )
 	surface.DrawTexturedRect( Pos2D.x - 17, Pos2D.y - 1, 32, 32 )
@@ -40,21 +47,28 @@ function ENT:PaintOptics( Pos2D, Col, PodIndex, Type )
 
 		surface.DrawLine( X, Pos2D.y,  X, Pos2D.y + 5 )
 	end
+end
 
+function ENT:PaintOptics( Pos2D, Col, PodIndex, Type )
 	if Type == 1 then
 		self:DrawRotatedText( "ДТ", Pos2D.x + 30, Pos2D.y + 30, "LVS_FONT_PANEL", Color(0,0,0,220), 0)
 	else
 		self:DrawRotatedText( Type == 3 and "ОФ" or "БР", Pos2D.x + 30, Pos2D.y + 30, "LVS_FONT_PANEL", Color(0,0,0,220), 0)
 	end
 
+	local size = self.OpticsCrosshairSize
+
+	surface.SetMaterial( self.OpticsCrosshairMaterial )
+	surface.SetDrawColor( self.OpticsCrosshairColor )
+	surface.DrawTexturedRect( Pos2D.x - size * 0.5, Pos2D.y - size * 0.5, size, size )
+
 	local H05 = ScrH() * 0.5
 
-	local diameter = ScrH()
-	local radius = H05
+	local ScrW = ScrW()
+	local ScrH = ScrH()
 
-	surface.SetMaterial( scope )
-	surface.SetDrawColor( 0, 0, 0, 50 )
-	surface.DrawTexturedRect( Pos2D.x - radius, Pos2D.y - radius, diameter, diameter )
+	local diameter = ScrH
+	local radius = diameter * 0.5
 
 	local Ro = math.min(self:WorldToLocal( self:GetEyeTrace().HitPos ):Length() / 50000,1) * 90
 
@@ -107,4 +121,13 @@ function ENT:PaintOptics( Pos2D, Col, PodIndex, Type )
 
 		xSwap = not xSwap
 	end
+
+	surface.SetMaterial( scope )
+	surface.SetDrawColor( 0, 0, 0, 255 )
+	surface.DrawTexturedRect( Pos2D.x - radius, Pos2D.y - radius, diameter, diameter )
+
+	-- black bar left + right
+	surface.DrawRect( 0, 0, Pos2D.x - radius, ScrH )
+	surface.DrawRect( Pos2D.x + radius, 0, Pos2D.x - radius, ScrH )
 end
+

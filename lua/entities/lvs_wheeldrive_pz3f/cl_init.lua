@@ -13,7 +13,6 @@ function ENT:TankGunnerViewOverride( ply, pos, angles, fov, pod )
 		local EyeAttach = self:GetAttachment( ID )
 
 		if EyeAttach then
-			--EyeAttach.Pos + EyeAttach.Ang:Right() * -0.4 + EyeAttach.Ang:Forward() * -5) * Zoom
 			pos = EyeAttach.Pos + EyeAttach.Ang:Up() * -0.8 + EyeAttach.Ang:Forward() * -15 + EyeAttach.Ang:Right() * -1.9
 		end
 	end

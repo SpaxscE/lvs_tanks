@@ -38,14 +38,14 @@ function ENT:InitWeapons()
 
 		local bullet = {}
 		bullet.Src 	= Muzzle.Pos
-		bullet.Dir 	= Muzzle.Ang:Up()
+		bullet.Dir 	= Muzzle.Ang:Forward()
 		bullet.Spread = Vector(0.01,0.01,0.01)
 		bullet.TracerName = "lvs_tracer_yellow_small"
 		bullet.Force	= 10
 		bullet.EnableBallistics = true
 		bullet.HullSize 	= 0
 		bullet.Damage	= 25
-		bullet.Velocity = 15000
+		bullet.Velocity = ent.ProjectileVelocityCoaxial
 		bullet.Attacker 	= ent:GetDriver()
 		ent:LVSFireBullet( bullet )
 
@@ -74,7 +74,7 @@ function ENT:InitWeapons()
 		if Muzzle then
 			local traceTurret = util.TraceLine( {
 				start = Muzzle.Pos,
-				endpos = Muzzle.Pos + Muzzle.Ang:Up() * 50000,
+				endpos = Muzzle.Pos + Muzzle.Ang:Forward() * 50000,
 				filter = ent:GetCrosshairFilterEnts()
 			} )
 
@@ -83,6 +83,9 @@ function ENT:InitWeapons()
 			ent:PaintCrosshairCenter( MuzzlePos2D, COLOR_WHITE )
 			ent:LVSPaintHitMarker( MuzzlePos2D )
 		end
+	end
+	weapon.OnSelect = function( ent )
+		ent:TurretUpdateBallistics( ent.ProjectileVelocityCoaxial, "muzzle_mg1" )
 	end
 	self:AddWeapon( weapon )
 
@@ -111,6 +114,12 @@ function ENT:InitWeapons()
 				ent:EmitSound("lvs/vehicles/pz3/cannon_unload.wav", 75, 100, 1, CHAN_WEAPON )
 				ent:SetHeat( 1 )
 				ent:SetOverheated( true )
+
+				if ent:GetUseHighExplosive() then
+					ent:TurretUpdateBallistics( ent.ProjectileVelocityHighExplosive )
+				else
+					ent:TurretUpdateBallistics( ent.ProjectileVelocityArmorPiercing )
+				end
 			end
 		end
 	end
@@ -123,7 +132,7 @@ function ENT:InitWeapons()
 
 		local bullet = {}
 		bullet.Src 	= Muzzle.Pos
-		bullet.Dir 	= Muzzle.Ang:Up()
+		bullet.Dir 	= Muzzle.Ang:Forward()
 		bullet.Spread = Vector(0,0,0)
 		bullet.EnableBallistics = true
 
@@ -135,12 +144,12 @@ function ENT:InitWeapons()
 			bullet.SplashDamageRadius = 200
 			bullet.SplashDamageEffect = "lvs_bullet_impact_explosive"
 			bullet.SplashDamageType = DMG_BLAST
-			bullet.Velocity = 13000
+			bullet.Velocity = ent.ProjectileVelocityHighExplosive
 		else
 			bullet.Force	= ent.CannonArmorPenetration
 			bullet.HullSize 	= 0
 			bullet.Damage	= 900
-			bullet.Velocity = 16000
+			bullet.Velocity = ent.ProjectileVelocityArmorPiercing
 		end
 
 		bullet.TracerName = "lvs_tracer_cannon"
@@ -176,7 +185,7 @@ function ENT:InitWeapons()
 		if Muzzle then
 			local traceTurret = util.TraceLine( {
 				start = Muzzle.Pos,
-				endpos = Muzzle.Pos + Muzzle.Ang:Up() * 50000,
+				endpos = Muzzle.Pos + Muzzle.Ang:Forward() * 50000,
 				filter = ent:GetCrosshairFilterEnts()
 			} )
 
@@ -189,6 +198,13 @@ function ENT:InitWeapons()
 			end
 
 			ent:LVSPaintHitMarker( MuzzlePos2D )
+		end
+	end
+	weapon.OnSelect = function( ent )
+		if ent:GetUseHighExplosive() then
+			ent:TurretUpdateBallistics( ent.ProjectileVelocityHighExplosive, "muzzle_cannon" )
+		else
+			ent:TurretUpdateBallistics( ent.ProjectileVelocityArmorPiercing, "muzzle_cannon" )
 		end
 	end
 	self:AddWeapon( weapon )
