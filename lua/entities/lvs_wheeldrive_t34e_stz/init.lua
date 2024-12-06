@@ -57,11 +57,14 @@ function ENT:MakeArmor()
 	self:AddArmor( Vector(-33,0,58), Angle(0,0,0), Vector(-50,-33,-14), Vector(20,33,10), 600, self.RearArmor )
 
 	-- turret
-	local TurretArmor = self:AddArmor( Vector(25,0,60), Angle(0,0,0), Vector(-40,-38,0), Vector(34,38,30), 1200, self.TurretArmor )
+	local TurretArmor = self:AddArmor( Vector(21.8,0,76.91), Angle(0,0,0), Vector(-50,-50,-14), Vector(50,50,14), 1200, self.TurretArmor )
 	TurretArmor.OnDestroyed = function( ent, dmginfo ) if not IsValid( self ) then return end self:SetTurretDestroyed( true ) end
 	TurretArmor.OnRepaired = function( ent ) if not IsValid( self ) then return end self:SetTurretDestroyed( false ) end
 	TurretArmor:SetLabel( "Turret" )
 	self:SetTurretArmor( TurretArmor )
+
+	-- sticking out gun
+	self:AddArmor( Vector(21.8,0,75.91), Angle(0,0,0), Vector(-60,-60,-9),Vector(60,60,9), 1500, self.FrontArmorScreen )
 
 	-- rear up
 	self:AddArmor( Vector(-100,0,40), Angle(50,0,0), Vector(-10,-45,7),Vector(20,45,34), 600, self.SideArmor )
