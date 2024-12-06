@@ -14,6 +14,7 @@ function ENT:OnSpawn( PObj )
 	self:MakeArmor()
 	self:MakeWeakSpots()
 	self:MakeSoundEmitters()
+	self:MakeTurretPhysics()
 
 	self:AddEngine( Vector(-55,0,60), Angle(0,180,0) )
 
@@ -87,6 +88,9 @@ function ENT:MakeWeakSpots()
 
 	-- ammo rack weakspot
 	self:AddAmmoRack( Vector(25,0,30), Vector(21,0,65), Angle(0,0,0), Vector(-24.25,-24.25,-12.25), Vector(24.25,24.25,12.25) )
+end
+
+function ENT:MakeTurretPhysics()
 end
 
 function ENT:MakeSoundEmitters()

@@ -2,6 +2,15 @@ AddCSLuaFile( "shared.lua" )
 AddCSLuaFile( "cl_init.lua" )
 include("shared.lua")
 
+function ENT:MakeTurretPhysics()
+	self:CreateTurretPhysics( {
+		start = "root_att",
+		follow = "turret_att",
+		mdl = "models/diggercars/t34/stz_turret_col.mdl",
+	} )
+
+end
+
 function ENT:MakeSoundEmitters()
 	local ID = self:LookupAttachment( "muzzle_mg" )
 	local Muzzle = self:GetAttachment( ID )
