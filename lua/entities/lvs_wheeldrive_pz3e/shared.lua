@@ -15,7 +15,7 @@ ENT.AdminSpawnable		= false
 ENT.MDL = "models/diggercars/pz3/pz3_asuf_e.mdl"
 ENT.MDL_DESTROYED = "models/diggercars/pz3/pz3_dead.mdl"
 
-ENT.CannonArmorPenetration = 4700
+ENT.CannonArmorPenetration = 4000
 
 ENT.lvsShowInSpawner = true
 
