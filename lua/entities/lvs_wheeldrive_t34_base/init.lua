@@ -43,12 +43,11 @@ function ENT:MakeGunnerSeat()
 end
 
 function ENT:MakeArmor()
-	-- front upper wedge center
-	self:AddArmor( Vector(67,0,46), Angle(30,0,0), Vector(17,-55,-10), Vector(50,0,10), 1100, self.FrontArmor )
-	self:AddArmor( Vector(67,0,46), Angle(30,0,0), Vector(-16,-50,-10), Vector(17,0,10), 1100, self.FrontArmor )
+	-- front center
+	self:AddArmor( Vector(109,0,28), Angle(0,0,0), Vector(-3,-38,-4), Vector(3,38,4), 1500, self.FrontArmorCenter )
 
-	self:AddArmor( Vector(67,0,46), Angle(30,0,0), Vector(17,0,-10), Vector(50,55,10), 1100, self.FrontArmor )
-	self:AddArmor( Vector(67,0,46), Angle(30,0,0), Vector(-16,0,-10), Vector(17,50,10), 1100, self.FrontArmor )
+	-- front upper
+	self:AddArmor( Vector(67,0,46), Angle(30,0,0), Vector(-16,-55,-10), Vector(50,55,10), 1100, self.FrontArmor )
 
 	-- side armor left front
 	self:AddArmor( Vector(20,31,50), Angle(0,0,45), Vector(-40,-15,-20), Vector(40,15,13), 600, self.SideArmor )
