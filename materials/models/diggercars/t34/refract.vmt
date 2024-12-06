@@ -2,7 +2,7 @@ Refract
 {
 	$model "1"
 	$normalmap "models/diggercars/t34/refract_nm"
-	$refractamount ".05"
+	$refractamount ".01"
 	$refracttinttexture "models/diggercars/t34/refract"
 	$envmap "env_cubemap"
 	$bluramount 1
