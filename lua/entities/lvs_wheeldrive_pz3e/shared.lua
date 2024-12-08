@@ -15,7 +15,8 @@ ENT.AdminSpawnable		= false
 ENT.MDL = "models/diggercars/pz3/pz3_asuf_e.mdl"
 ENT.MDL_DESTROYED = "models/diggercars/pz3/pz3_dead.mdl"
 
-ENT.CannonArmorPenetration = 4000
+ENT.CannonArmorPenetration = 4700
+ENT.CannonArmorPenetration1km = 900
 
 ENT.lvsShowInSpawner = true
 
@@ -154,6 +155,7 @@ function ENT:InitWeapons()
 			bullet.Velocity = ent.ProjectileVelocityHighExplosive
 		else
 			bullet.Force	= ent.CannonArmorPenetration
+			bullet.Force1km	= ent.CannonArmorPenetration1km
 			bullet.HullSize 	= 0
 			bullet.Damage	= 800
 			bullet.Velocity = ent.ProjectileVelocityArmorPiercing
