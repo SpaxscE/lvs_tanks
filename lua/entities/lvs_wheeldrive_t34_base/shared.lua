@@ -14,6 +14,8 @@ ENT.FrontArmor = 2500
 ENT.SideArmor = 2000
 ENT.TurretArmor = 2500
 ENT.RearArmor = 500
+ENT.FrontArmorScreen = 5000
+ENT.FrontArmorCenter = 8000
 
 -- ballistics
 ENT.ProjectileVelocityCoaxial = 15000

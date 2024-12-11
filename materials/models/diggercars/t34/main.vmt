@@ -1,8 +1,13 @@
 "VertexLitGeneric"
 {
-	"$basetexture" "models/DiggerCars/shared/sprops_chrome"
-	"$bumpmap" "models/DiggerCars/shared/skin_nm"
+	"$basetexture" "models/diggercars/shared/sprops_chrome"
+	"$bumpmap" "models/diggercars/shared/skin_nm"
         "$blendtintbybasealpha" 1
+
+	"$detail" "models/diggercars/shared/white"
+	"$detailscale" "1"
+	"$detailblendfactor" "0"
+	"$detailblendmode" "5"
 
 	"$normalmapalphaenvmapmask" 1
 	"$nodecal" "1"
