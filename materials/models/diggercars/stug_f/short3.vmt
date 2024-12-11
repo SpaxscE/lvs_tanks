@@ -1,0 +1,32 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/diggercars/stug_f/short"
+	"$bumpmap" "models/diggercars/stug_f/short_nm"	
+
+	"$detail" "models/diggercars/camos/ger_camo_dunkelgelb_africa"
+	"$detailblendmode" "4"
+	"$detailscale" "4"
+	
+	"$normalmapalphaenvmapmask" 1
+	"$halflambert" 1
+
+	"$phong" "1" 
+	"$phongboost" "5" 
+	"$phongfresnelranges" "[.3 .5 1]" 
+	"$phongexponent" 20
+
+	"$envmap" "env_cubemap"
+	"$envmaptint" "[0.2 0.2 0.2]"
+	"$envmapfrensel" "1"
+	"$colorfix" "{255 255 255}"
+	"Proxies"
+	{
+		"Equals"
+		{
+			srcVar1 $colorfix
+			resultVar	$color
+		}
+	}
+}
+
+
