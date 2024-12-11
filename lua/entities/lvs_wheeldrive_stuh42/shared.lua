@@ -20,6 +20,9 @@ ENT.ProjectileVelocityCoaxial = 15000
 ENT.ProjectileVelocityHighExplosive = 6000
 ENT.ProjectileVelocityArmorPiercing = 8000
 
+-- update turret default value
+ENT.TurretBallisticsProjectileVelocity = ENT.ProjectileVelocityArmorPiercing
+
 ENT.RandomColor = {
 
 	{
