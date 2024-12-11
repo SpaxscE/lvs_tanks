@@ -19,6 +19,8 @@ ENT.AITEAM = 1
 
 ENT.MaxHealth = 1200
 
+ENT.CannonExplosivePenetration = 500
+
 ENT.CannonArmorPenetration = 13700
 ENT.CannonArmorPenetration1km = 8000
 
@@ -168,9 +170,11 @@ function ENT:InitWeapons()
 			bullet.SplashDamageRadius = 200
 			bullet.SplashDamageEffect = "lvs_bullet_impact_explosive"
 			bullet.SplashDamageType = DMG_BLAST
+			bullet.SplashDamageForce = ent.CannonExplosivePenetration
 			bullet.Velocity = ent.ProjectileVelocityHighExplosive
 		else
 			bullet.Force	= ent.CannonArmorPenetration
+			bullet.Force1km = ent.CannonArmorPenetration1km
 			bullet.HullSize 	= 0
 			bullet.Damage	= 1000
 			bullet.Velocity = ent.ProjectileVelocityArmorPiercing
@@ -221,6 +225,26 @@ function ENT:InitWeapons()
 			end
 
 			ent:LVSPaintHitMarker( MuzzlePos2D )
+		end
+	end
+	self:AddWeapon( weapon )
+
+	-- turret rotation disabler
+	local weapon = {}
+	weapon.Icon = Material("lvs/weapons/tank_noturret.png")
+	weapon.UseableByAI = false
+	weapon.Ammo = -1
+	weapon.Delay = 0
+	weapon.HeatRateUp = 0
+	weapon.HeatRateDown = 0
+	weapon.OnSelect = function( ent, old, new  )
+		if ent.SetTurretEnabled then
+			ent:SetTurretEnabled( false )
+		end
+	end
+	weapon.OnDeselect = function( ent, old, new  )
+		if ent.SetTurretEnabled then
+			ent:SetTurretEnabled( true )
 		end
 	end
 	self:AddWeapon( weapon )

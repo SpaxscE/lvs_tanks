@@ -7,22 +7,28 @@ local LoadoutsMember = {
 		CannonReloadSound = "lvs/vehicles/tiger/cannon_reload.wav",
 		CannonArmorPenetration = 13700,
 		CannonArmorPenetration1km = 8000,
+		CannonExplosivePenetration = 500,
 		ProjectileVelocityHighExplosive = 16000,
 		ProjectileVelocityArmorPiercing = 20000,
+		OpticsProjectileSize = 7.5,
 	},
 	[1] = {
 		CannonReloadSound = "lvs/vehicles/pz3/cannon_reload.wav",
 		CannonArmorPenetration = 5400,
 		CannonArmorPenetration1km = 3000,
+		CannonExplosivePenetration = 500,
 		ProjectileVelocityHighExplosive = 16000,
 		ProjectileVelocityArmorPiercing = 20000,
+		OpticsProjectileSize = 7.5,
 	},
 	[2] = {
 		CannonReloadSound = "lvs/vehicles/wespe/cannon_reload.wav",
 		CannonArmorPenetration = 5400,
 		CannonArmorPenetration1km = 3000,
+		CannonExplosivePenetration = 4000,
 		ProjectileVelocityHighExplosive = 6000,
 		ProjectileVelocityArmorPiercing = 8000,
+		OpticsProjectileSize = 7.5,
 	},
 }
 
