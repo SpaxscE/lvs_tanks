@@ -1,20 +1,24 @@
 
 local CannonBodyGroup = 1 -- the bodygroup we are watching
 
-local Loadouts = {
+-- values get merged with entity table
+local LoadoutsMember = {
 	[0] = {
+		CannonReloadSound = "lvs/vehicles/tiger/cannon_reload.wav",
 		CannonArmorPenetration = 13700,
 		CannonArmorPenetration1km = 8000,
 		ProjectileVelocityHighExplosive = 16000,
 		ProjectileVelocityArmorPiercing = 20000,
 	},
 	[1] = {
+		CannonReloadSound = "lvs/vehicles/pz3/cannon_reload.wav",
 		CannonArmorPenetration = 5400,
 		CannonArmorPenetration1km = 3000,
 		ProjectileVelocityHighExplosive = 16000,
 		ProjectileVelocityArmorPiercing = 20000,
 	},
 	[2] = {
+		CannonReloadSound = "lvs/vehicles/wespe/cannon_reload.wav",
 		CannonArmorPenetration = 5400,
 		CannonArmorPenetration1km = 3000,
 		ProjectileVelocityHighExplosive = 6000,
@@ -22,7 +26,41 @@ local Loadouts = {
 	},
 }
 
-local LoadoutsFunction = {
+local LoadoutsWeapons = {
+	[0] = { -- loadout bodygroup 0
+		[1] = { -- pod #1 (driver)
+			[1] = { -- weapon #1
+				Ammo = 44,
+				Delay = 3.3,
+				HeatRateUp = 1,
+				HeatRateDown = 0.22,
+			},
+		},
+	},
+	[1] = {
+		[1] = {
+			[1] = {
+				Ammo = 52,
+				Delay = 2.25,
+				HeatRateUp = 1,
+				HeatRateDown = 0.6,
+			},
+		},
+	},
+	[2] = {
+		[1] = {
+			[1] = {
+				Ammo = 20,
+				Delay = 3.3,
+				HeatRateUp = 1,
+				HeatRateDown = 0.22,
+			},
+		},
+	},
+}
+
+-- function that gets called once when the loadout is activated
+local LoadoutsFunctions = {
 	[0] = function( ent )
 		ent:ChangeTurretSound( ent.SNDTurret, "lvs/vehicles/pak40/cannon_fire.wav", "lvs/vehicles/pak40/cannon_fire.wav" )
 	end,
@@ -37,9 +75,9 @@ local LoadoutsFunction = {
 }
 
 function ENT:OnCannonBodyGroupChanged( oldvalue, newvalue )
-	local CurLoadout = Loadouts[ newvalue ]
+	local CurLoadout = LoadoutsMember[ newvalue ]
 
-	table.Merge( self, CurLoadout )
+	if CurLoadout then table.Merge( self, CurLoadout ) end
 
 	if self:GetUseHighExplosive() then
 		self:TurretUpdateBallistics( self.ProjectileVelocityHighExplosive )
@@ -47,9 +85,23 @@ function ENT:OnCannonBodyGroupChanged( oldvalue, newvalue )
 		self:TurretUpdateBallistics( self.ProjectileVelocityArmorPiercing )
 	end
 
-	if not isfunction( LoadoutsFunction[ newvalue ] ) then return end
+	local UpdateWeapon = LoadoutsWeapons[ newvalue ]
 
-	LoadoutsFunction[ newvalue ]( self )
+	if istable( UpdateWeapon ) then
+		for PodID, data in pairs( UpdateWeapon ) do
+
+			for WeaponID, weaponData in pairs( data ) do
+
+				self:UpdateWeapon( PodID, WeaponID, weaponData )
+			end
+		end
+
+		if SERVER then
+			self:WeaponRestoreAmmo()
+		end
+	end
+
+	if isfunction( LoadoutsFunctions[ newvalue ] ) then LoadoutsFunctions[ newvalue ]( self ) end
 end
 
 function ENT:ChangeTurretSound( Emitter, snd, snd_interior )

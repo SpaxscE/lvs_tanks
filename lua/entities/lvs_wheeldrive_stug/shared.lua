@@ -22,6 +22,8 @@ ENT.MaxHealth = 1200
 ENT.CannonArmorPenetration = 13700
 ENT.CannonArmorPenetration1km = 8000
 
+ENT.CannonReloadSound = "lvs/vehicles/tiger/cannon_reload.wav"
+
 --damage system
 ENT.DSArmorIgnoreForce = 1000
 ENT.FrontArmor = 4000
@@ -196,7 +198,7 @@ function ENT:InitWeapons()
 		if not IsValid( ent.SNDTurret ) then return end
 
 		ent.SNDTurret:PlayOnce( 100 + math.cos( CurTime() + ent:EntIndex() * 1337 ) * 5 + math.Rand(-1,1), 1 )
-		ent:EmitSound("lvs/vehicles/tiger/cannon_reload.wav", 75, 100, 1, CHAN_WEAPON )
+		ent:EmitSound(self.CannonReloadSound, 75, 100, 1, CHAN_WEAPON )
 	end
 	weapon.HudPaint = function( ent, X, Y, ply )
 		local ID = ent:LookupAttachment(  "muzzle" )
