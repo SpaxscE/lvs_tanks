@@ -53,7 +53,7 @@ local LoadoutsWeapons = {
 				Ammo = 20,
 				Delay = 3.3,
 				HeatRateUp = 1,
-				HeatRateDown = 0.22,
+				HeatRateDown = 0.25,
 			},
 		},
 	},
