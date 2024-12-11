@@ -21,15 +21,3 @@ ENT.TurretYawMin = -14
 ENT.TurretYawMax = 14
 ENT.TurretYawMul = -1
 ENT.TurretYawOffset = 0
-
-function ENT:GetTurretViewOrigin()
-	local ID = self:LookupAttachment( self.TurretBallisticsViewAttachment )
-
-	local Att = self:GetAttachment( ID )
-
-	if not Att then return self:GetPos(), false end
-
-	local Pos = Att.Pos - Att.Ang:Forward() * 30 - Att.Ang:Right() * 3 - Att.Ang:Up() * 10
-
-	return Pos, true
-end
