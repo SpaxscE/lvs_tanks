@@ -118,6 +118,7 @@ function ENT:InitWeapons()
 				ent:SetHeat( 1 )
 				ent:SetOverheated( true )
 				ent:EmitSound("lvs/vehicles/tiger/cannon_unload.wav", 75, 100, 1, CHAN_WEAPON )
+
 				if ent:GetUseHighExplosive() then
 					ent:TurretUpdateBallistics( ent.ProjectileVelocityHighExplosive )
 				else
