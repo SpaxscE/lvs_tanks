@@ -23,12 +23,12 @@ local LoadoutsMember = {
 	},
 	[2] = {
 		CannonReloadSound = "lvs/vehicles/wespe/cannon_reload.wav",
-		CannonArmorPenetration = 8000,
-		CannonArmorPenetration1km = 2000,
+		CannonArmorPenetration = 7400,
+		CannonArmorPenetration1km = 4500,
 		CannonExplosivePenetration = 4000,
 		ProjectileVelocityHighExplosive = 6000,
 		ProjectileVelocityArmorPiercing = 8000,
-		OpticsProjectileSize = 7.5,
+		OpticsProjectileSize = 10.5,
 	},
 }
 

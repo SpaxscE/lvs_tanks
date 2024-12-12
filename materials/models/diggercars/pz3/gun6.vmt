@@ -5,7 +5,7 @@
 	
 	"$detail" "models/diggercars/camos/ger_camo_winter_waves_bicolor"
 	"$detailblendmode" "4"
-	"$detailscale" "1"
+	"$detailscale" "0.5"
 	
 	"$normalmapalphaenvmapmask" 1
 	"$halflambert" 1
