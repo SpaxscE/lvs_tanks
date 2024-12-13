@@ -247,6 +247,8 @@ function ENT:InitWeapons()
 
 		ent:TakeAmmo( 1 )
 
+		ent:PlayAnimation( "turret_fire" )
+
 		if not IsValid( ent.SNDTurret ) then return end
 
 		ent.SNDTurret:PlayOnce( 100 + math.cos( CurTime() + ent:EntIndex() * 1337 ) * 5 + math.Rand(-1,1), 1 )
