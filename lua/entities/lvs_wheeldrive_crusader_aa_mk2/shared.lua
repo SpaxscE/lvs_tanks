@@ -15,56 +15,23 @@ ENT.AdminSpawnable		= false
 ENT.MDL = "models/diggercars/crusader/crusader_aa_mk2.mdl"
 
 -- ballistics
-ENT.ProjectileVelocityHighExplosive = 60000
-ENT.ProjectileVelocityArmorPiercing = 80000
+ENT.ProjectileVelocityArmorPiercing = 40000
 
 ENT.CannonArmorPenetration = 3800
 ENT.CannonArmorPenetration1km = 500
 
 function ENT:OnSetupDataTables()
-	self:AddDT( "Bool", "UseHighExplosive" )
-
-	if SERVER then
-		self:SetUseHighExplosive( true )
-	end
 end
 
 function ENT:InitWeapons()
 	local COLOR_WHITE = Color(255,255,255,255)
 
-
 	local weapon = {}
-	weapon.Icon = true
+	weapon.Icon = Material("lvs/weapons/bullet_ap.png")
 	weapon.Ammo = 1200
 	weapon.Delay = 0.13
 	weapon.HeatRateUp = 0.13
 	weapon.HeatRateDown = 0.5
-	weapon.OnThink = function( ent )
-		if ent:GetSelectedWeapon() ~= 1 then return end
-
-		local ply = ent:GetDriver()
-
-		if not IsValid( ply ) then return end
-
-		local SwitchType = ply:lvsKeyDown( "CAR_SWAP_AMMO" )
-
-		if ent._oldSwitchType ~= SwitchType then
-			ent._oldSwitchType = SwitchType
-
-			if SwitchType then
-				ent:SetUseHighExplosive( not ent:GetUseHighExplosive() )
-				ent:EmitSound("lvs/vehicles/crusader/mk2/cannon_reload.wav", 75, 100, 1, CHAN_WEAPON )
-				ent:SetHeat( 1 )
-				ent:SetOverheated( true )
-
-				if ent:GetUseHighExplosive() then
-					ent:TurretUpdateBallistics( ent.ProjectileVelocityHighExplosive )
-				else
-					ent:TurretUpdateBallistics( ent.ProjectileVelocityArmorPiercing )
-				end
-			end
-		end
-	end
 	weapon.Attack = function( ent )
 		ent._swapMuzzle = not ent._swapMuzzle
 
@@ -80,27 +47,17 @@ function ENT:InitWeapons()
 		bullet.Src 	= Muzzle.Pos
 		bullet.Dir 	= Muzzle.Ang:Forward()
 		bullet.Spread = Vector(0,0,0)
+		bullet.Force	= ent.CannonArmorPenetration
+		bullet.Force1km = ent.CannonArmorPenetration1km
+		bullet.HullSize	= 160 * math.max( bullet.Dir.z, 0 )
+		bullet.Damage	= 35
 		bullet.EnableBallistics = true
-
-		if ent:GetUseHighExplosive() then
-			bullet.Force	= 500
-			bullet.HullSize 	= 125 * math.max( bullet.Dir.z, 0 )
-			bullet.Damage	= 80
-			bullet.SplashDamage = 20
-			bullet.SplashDamageRadius = 100
-			bullet.SplashDamageEffect = "lvs_defence_explosion"
-			bullet.SplashDamageType = DMG_SONIC
-			bullet.Velocity = ent.ProjectileVelocityHighExplosive
-		else
-			bullet.Force	= ent.CannonArmorPenetration
-			bullet.Force1km = ent.CannonArmorPenetration1km
-
-			bullet.HullSize	= 40 * math.max( bullet.Dir.z, 0 )
-			bullet.Damage	= 100
-			bullet.Velocity = ent.ProjectileVelocityArmorPiercing
-		end
-
-		bullet.TracerName = "lvs_tracer_autocannon"
+		bullet.SplashDamage = 100
+		bullet.SplashDamageRadius = 150
+		bullet.SplashDamageEffect = ""
+		bullet.SplashDamageType = DMG_SONIC
+		bullet.Velocity = ent.ProjectileVelocityArmorPiercing
+		bullet.TracerName = "lvs_tracer_autocannon_twin"
 		bullet.Attacker 	= ent:GetDriver()
 		ent:LVSFireBullet( bullet )
 
@@ -109,11 +66,6 @@ function ENT:InitWeapons()
 		effectdata:SetNormal( bullet.Dir )
 		effectdata:SetEntity( ent )
 		util.Effect( "lvs_muzzle", effectdata )
-
-		local PhysObj = ent:GetPhysicsObject()
-		if IsValid( PhysObj ) then
-			PhysObj:ApplyForceOffset( -bullet.Dir * 15000, bullet.Src )
-		end
 
 		ent:TakeAmmo( 1 )
 
@@ -153,11 +105,7 @@ function ENT:InitWeapons()
 
 			local MuzzlePos2D = traceTurret.HitPos:ToScreen() 
 
-			if ent:GetUseHighExplosive() then
-				ent:PaintCrosshairSquare( MuzzlePos2D, COLOR_WHITE )
-			else
-				ent:PaintCrosshairOuter( MuzzlePos2D, COLOR_WHITE )
-			end
+			ent:PaintCrosshairOuter( MuzzlePos2D, COLOR_WHITE )
 
 			ent:LVSPaintHitMarker( MuzzlePos2D )
 		end

@@ -97,10 +97,10 @@ function ENT:InitWeapons()
 
 		if ent:GetUseHighExplosive() then
 			bullet.Force	= 500
-			bullet.HullSize 	= 125 * math.max( bullet.Dir.z, 0 )
+			bullet.HullSize 	= 80 * math.max( bullet.Dir.z, 0 )
 			bullet.Damage	= 80
-			bullet.SplashDamage = 20
-			bullet.SplashDamageRadius = 100
+			bullet.SplashDamage = 100
+			bullet.SplashDamageRadius = 150
 			bullet.SplashDamageEffect = "lvs_defence_explosion"
 			bullet.SplashDamageType = DMG_SONIC
 			bullet.Velocity = ent.ProjectileVelocityHighExplosive
