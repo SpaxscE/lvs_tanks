@@ -6,8 +6,15 @@ include("shared.lua")
 include("sh_turret.lua")
 
 function ENT:MakeSoundEmitters()
-	self.SNDTurret = self:AddSoundEmitter( Vector(-63,0,85), "^lvs/vehicles/crusader/mk2/cannon_fire_loop.wav" )
+	local ID1 = self:LookupAttachment( "muzzle_1" )
+	local Muzzle1 = self:GetAttachment( ID1 )
+
+	local ID2 = self:LookupAttachment( "muzzle_2" )
+	local Muzzle2 = self:GetAttachment( ID2 )
+
+	self.SNDTurret = self:AddSoundEmitter( (self:WorldToLocal( Muzzle1.Pos ) + self:WorldToLocal( Muzzle2.Pos )) * 0.5, "^lvs/vehicles/crusader/mk2/cannon_fire_loop.wav" )
 	self.SNDTurret:SetSoundLevel( 95 )
+	self.SNDTurret:SetParent( self, ID1 )
 end
 
 function ENT:MakeDriverSeat()

@@ -15,11 +15,19 @@ ENT.AdminSpawnable		= false
 ENT.MDL = "models/diggercars/crusader/crusader_aa_mk2.mdl"
 
 -- ballistics
-ENT.ProjectileVelocityHighExplosive = 50000
-ENT.ProjectileVelocityArmorPiercing = 40000
+ENT.ProjectileVelocityHighExplosive = 60000
+ENT.ProjectileVelocityArmorPiercing = 80000
 
 ENT.CannonArmorPenetration = 3800
 ENT.CannonArmorPenetration1km = 500
+
+function ENT:OnSetupDataTables()
+	self:AddDT( "Bool", "UseHighExplosive" )
+
+	if SERVER then
+		self:SetUseHighExplosive( true )
+	end
+end
 
 function ENT:InitWeapons()
 	local COLOR_WHITE = Color(255,255,255,255)
@@ -45,7 +53,7 @@ function ENT:InitWeapons()
 
 			if SwitchType then
 				ent:SetUseHighExplosive( not ent:GetUseHighExplosive() )
-				ent:EmitSound("lvs/vehicles/sherman/cannon_unload.wav", 75, 100, 1, CHAN_WEAPON )
+				ent:EmitSound("lvs/vehicles/crusader/mk2/cannon_reload.wav", 75, 100, 1, CHAN_WEAPON )
 				ent:SetHeat( 1 )
 				ent:SetOverheated( true )
 
@@ -76,16 +84,18 @@ function ENT:InitWeapons()
 
 		if ent:GetUseHighExplosive() then
 			bullet.Force	= 500
-			bullet.HullSize 	= 15
-			bullet.Damage	= 50
+			bullet.HullSize 	= 125 * math.max( bullet.Dir.z, 0 )
+			bullet.Damage	= 80
 			bullet.SplashDamage = 20
 			bullet.SplashDamageRadius = 100
-			bullet.SplashDamageEffect = "lvs_bullet_impact_explosive"
-			bullet.SplashDamageType = DMG_BLAST
+			bullet.SplashDamageEffect = "lvs_defence_explosion"
+			bullet.SplashDamageType = DMG_SONIC
 			bullet.Velocity = ent.ProjectileVelocityHighExplosive
 		else
 			bullet.Force	= ent.CannonArmorPenetration
-			bullet.HullSize 	= 0
+			bullet.Force1km = ent.CannonArmorPenetration1km
+
+			bullet.HullSize	= 40 * math.max( bullet.Dir.z, 0 )
 			bullet.Damage	= 100
 			bullet.Velocity = ent.ProjectileVelocityArmorPiercing
 		end
