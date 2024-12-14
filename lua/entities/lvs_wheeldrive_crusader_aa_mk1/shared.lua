@@ -106,6 +106,8 @@ function ENT:InitWeapons()
 			bullet.Velocity = ent.ProjectileVelocityHighExplosive
 		else
 			bullet.Force	= ent.CannonArmorPenetration
+			bullet.Force1km = ent.CannonArmorPenetration1km
+
 			bullet.HullSize	= 40 * math.max( bullet.Dir.z, 0 )
 			bullet.Damage	= 100
 			bullet.Velocity = ent.ProjectileVelocityArmorPiercing
