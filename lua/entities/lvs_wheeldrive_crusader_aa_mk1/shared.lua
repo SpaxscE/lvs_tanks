@@ -36,8 +36,11 @@ function ENT:InitWeapons()
 	weapon.Icon = true
 	weapon.Ammo = 150
 	weapon.Delay = 0.4
+
+	weapon.HeatIsClip = true
 	weapon.HeatRateUp = 0.45
-	weapon.HeatRateDown = 0.4
+	weapon.HeatRateDown = 0.2
+
 	weapon.OnThink = function( ent )
 		if ent:GetSelectedWeapon() ~= 1 then return end
 
