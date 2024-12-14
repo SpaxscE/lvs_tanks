@@ -49,7 +49,7 @@ function ENT:InitWeapons()
 		bullet.Spread = Vector(0,0,0)
 		bullet.Force	= ent.CannonArmorPenetration
 		bullet.Force1km = ent.CannonArmorPenetration1km
-		bullet.HullSize	= 160 * math.max( bullet.Dir.z, 0 )
+		bullet.HullSize	= 15 * math.max( bullet.Dir.z, 0 )
 		bullet.Damage	= 35
 		bullet.EnableBallistics = true
 		bullet.SplashDamage = 100
