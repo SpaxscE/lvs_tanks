@@ -2,6 +2,12 @@
 {
 	"$basetexture" "models/diggercars/crusader/mk2_gun"
 	"$bumpmap" "models/diggercars/crusader/mk2_gun_nm"
+
+	"$detail" "models/diggercars/crusader/mk2_gun_e"
+	"$detailscale" "1"
+	"$detailblendfactor" "0"
+	"$detailblendmode" "5"
+
 	"$normalmapalphaenvmapmask" 1
 	"$halflambert" 1
 
