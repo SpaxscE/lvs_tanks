@@ -39,7 +39,9 @@ function ENT:InitWeapons()
 	weapon.Ammo = 150
 	weapon.Delay = 0.4
 	weapon.ReloadSpeed = 3
-
+	weapon.OnReload = function( ent )
+		ent:EmitSound("lvs/vehicles/sherman/cannon_reload.wav", 75, 100, 1, CHAN_WEAPON )
+	end
 	weapon.OnThink = function( ent )
 		if ent:GetSelectedWeapon() ~= 1 then return end
 
