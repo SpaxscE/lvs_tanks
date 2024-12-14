@@ -41,6 +41,12 @@ function ENT:InitWeapons()
 	weapon.ReloadSpeed = 3
 	weapon.OnReload = function( ent )
 		ent:EmitSound("lvs/vehicles/sherman/cannon_reload.wav", 75, 100, 1, CHAN_WEAPON )
+
+		timer.Simple( 1.5, function()
+			if not IsValid( ent ) then return end
+
+			ent:SetPoseParameter("clip", 6 )
+		end )
 	end
 	weapon.OnThink = function( ent )
 		if ent:GetSelectedWeapon() ~= 1 then return end
@@ -59,6 +65,14 @@ function ENT:InitWeapons()
 				ent:EmitSound("lvs/vehicles/sherman/cannon_unload.wav", 75, 100, 1, CHAN_WEAPON )
 				ent:SetHeat( 1 )
 				ent:SetOverheated( true )
+
+				ent:SetPoseParameter("clip", 0 )
+
+				timer.Simple( 1.5, function()
+					if not IsValid( ent ) then return end
+
+					ent:SetPoseParameter("clip", 6 )
+				end )
 
 				if ent:GetUseHighExplosive() then
 					ent:TurretUpdateBallistics( ent.ProjectileVelocityHighExplosive )
@@ -83,7 +97,7 @@ function ENT:InitWeapons()
 
 		if ent:GetUseHighExplosive() then
 			bullet.Force	= 500
-			bullet.HullSize 	= 100 * math.max( bullet.Dir.z, 0 )
+			bullet.HullSize 	= 125 * math.max( bullet.Dir.z, 0 )
 			bullet.Damage	= 80
 			bullet.SplashDamage = 20
 			bullet.SplashDamageRadius = 100
@@ -92,7 +106,7 @@ function ENT:InitWeapons()
 			bullet.Velocity = ent.ProjectileVelocityHighExplosive
 		else
 			bullet.Force	= ent.CannonArmorPenetration
-			bullet.HullSize	= 1
+			bullet.HullSize	= 40 * math.max( bullet.Dir.z, 0 )
 			bullet.Damage	= 100
 			bullet.Velocity = ent.ProjectileVelocityArmorPiercing
 		end
@@ -113,7 +127,7 @@ function ENT:InitWeapons()
 			PhysObj:ApplyForceOffset( -bullet.Dir * 50000, bullet.Src )
 		end
 
-		ent:SetPoseParameter("hatch6", self:GetHeat() )
+		ent:SetPoseParameter("clip", self:GetClip() )
 	
 		ent:TakeAmmo( 1 )
 
