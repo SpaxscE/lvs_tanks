@@ -1,4 +1,0 @@
-{sound
-(include "\sound\defines.inc")
-("vehicle_engine")
-}

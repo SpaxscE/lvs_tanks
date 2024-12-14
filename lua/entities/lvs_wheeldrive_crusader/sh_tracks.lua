@@ -129,7 +129,7 @@ else
 	ENT.TrackPoseParameterRight = "spin_wheels_right"
 	ENT.TrackPoseParameterRightMul =  -1.252
 
-	ENT.TrackSounds = "lvs/vehicles/sherman/tracks_loop.wav"
+	ENT.TrackSounds = "lvs/vehicles/crusader/tracks_loop.wav"
 	ENT.TrackHull = Vector(20,20,20)
 	ENT.TrackData = {}
 	for i = 1, 6 do
