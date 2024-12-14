@@ -34,12 +34,11 @@ function ENT:InitWeapons()
 
 	local weapon = {}
 	weapon.Icon = true
+
+	weapon.Clip = 6
 	weapon.Ammo = 150
 	weapon.Delay = 0.4
-
-	weapon.HeatIsClip = true
-	weapon.HeatRateUp = 0.45
-	weapon.HeatRateDown = 0.2
+	weapon.ReloadSpeed = 3
 
 	weapon.OnThink = function( ent )
 		if ent:GetSelectedWeapon() ~= 1 then return end
@@ -66,10 +65,6 @@ function ENT:InitWeapons()
 				end
 			end
 		end
-
-		local Heat = self:GetHeat()
-		ent:SetPoseParameter("hatch6", Heat/1.15 )
-
 	end
 	weapon.Attack = function( ent )
 		local ID = ent:LookupAttachment( "muzzle" )
@@ -100,7 +95,7 @@ function ENT:InitWeapons()
 			bullet.Velocity = ent.ProjectileVelocityArmorPiercing
 		end
 
-		bullet.TracerName = "lvs_tracer_autocannon_highvelocity"
+		bullet.TracerName = "lvs_tracer_autocannon"
 		bullet.Attacker 	= ent:GetDriver()
 		ent:LVSFireBullet( bullet )
 
@@ -116,6 +111,8 @@ function ENT:InitWeapons()
 			PhysObj:ApplyForceOffset( -bullet.Dir * 50000, bullet.Src )
 		end
 
+		ent:SetPoseParameter("hatch6", self:GetHeat() )
+	
 		ent:TakeAmmo( 1 )
 
 		if not IsValid( ent.SNDTurret ) then return end
