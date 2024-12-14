@@ -25,6 +25,8 @@ function ENT:MakeDriverSeat()
 end
 
 function ENT:MakeTurretPhysics()
+	self:SetPoseParameter("clip", 6 )
+
 	self:CreateTurretPhysics( {
 		start = "root_att",
 		follow = "turret_att",
