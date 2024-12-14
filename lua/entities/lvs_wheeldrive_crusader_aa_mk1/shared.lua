@@ -15,22 +15,28 @@ ENT.AdminSpawnable		= false
 ENT.MDL = "models/diggercars/crusader/crusader_aa_mk1.mdl"
 
 -- ballistics
-ENT.ProjectileVelocityHighExplosive = 35000
-ENT.ProjectileVelocityArmorPiercing = 30000
+ENT.ProjectileVelocityHighExplosive = 60000
+ENT.ProjectileVelocityArmorPiercing = 80000
 
 ENT.CannonArmorPenetration = 7200
 ENT.CannonArmorPenetration1km = 2900
 
+function ENT:OnSetupDataTables()
+	self:AddDT( "Bool", "UseHighExplosive" )
+
+	if SERVER then
+		self:SetUseHighExplosive( true )
+	end
+end
+
 function ENT:InitWeapons()
 	local COLOR_WHITE = Color(255,255,255,255)
-
-
 
 	local weapon = {}
 	weapon.Icon = true
 	weapon.Ammo = 150
 	weapon.Delay = 0.4
-	weapon.HeatRateUp = 0.5
+	weapon.HeatRateUp = 0.45
 	weapon.HeatRateDown = 0.4
 	weapon.OnThink = function( ent )
 		if ent:GetSelectedWeapon() ~= 1 then return end
@@ -73,21 +79,21 @@ function ENT:InitWeapons()
 
 		if ent:GetUseHighExplosive() then
 			bullet.Force	= 500
-			bullet.HullSize 	= 15
-			bullet.Damage	= 250
-			bullet.SplashDamage = 400
-			bullet.SplashDamageRadius = 120
-			bullet.SplashDamageEffect = "lvs_bullet_impact_explosive"
-			bullet.SplashDamageType = DMG_BLAST
+			bullet.HullSize 	= 100 * math.max( bullet.Dir.z, 0 )
+			bullet.Damage	= 80
+			bullet.SplashDamage = 20
+			bullet.SplashDamageRadius = 100
+			bullet.SplashDamageEffect = "lvs_defence_explosion"
+			bullet.SplashDamageType = DMG_SONIC
 			bullet.Velocity = ent.ProjectileVelocityHighExplosive
 		else
 			bullet.Force	= ent.CannonArmorPenetration
-			bullet.HullSize 	= 0
-			bullet.Damage	= 800
+			bullet.HullSize	= 1
+			bullet.Damage	= 100
 			bullet.Velocity = ent.ProjectileVelocityArmorPiercing
 		end
 
-		bullet.TracerName = "lvs_tracer_cannon"
+		bullet.TracerName = "lvs_tracer_autocannon_highvelocity"
 		bullet.Attacker 	= ent:GetDriver()
 		ent:LVSFireBullet( bullet )
 
@@ -98,8 +104,9 @@ function ENT:InitWeapons()
 		util.Effect( "lvs_muzzle", effectdata )
 
 		local PhysObj = ent:GetPhysicsObject()
+
 		if IsValid( PhysObj ) then
-			PhysObj:ApplyForceOffset( -bullet.Dir * 100000, bullet.Src )
+			PhysObj:ApplyForceOffset( -bullet.Dir * 50000, bullet.Src )
 		end
 
 		ent:TakeAmmo( 1 )
@@ -108,7 +115,7 @@ function ENT:InitWeapons()
 
 		ent:PlayAnimation( "turret_fire" )
 
-		ent.SNDTurret:PlayOnce( 100 + math.cos( CurTime() + ent:EntIndex() * 1337 ) * 5 + math.Rand(-1,1), 1 )
+		ent.SNDTurret:PlayOnce( math.random(95,105), 1 )
 	end
 	weapon.HudPaint = function( ent, X, Y, ply )
 		local ID = ent:LookupAttachment(  "muzzle" )

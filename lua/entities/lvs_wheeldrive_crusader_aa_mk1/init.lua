@@ -8,7 +8,7 @@ include("sh_turret.lua")
 function ENT:MakeSoundEmitters()
 	local ID = self:LookupAttachment( "muzzle" )
 	local Muzzle = self:GetAttachment( ID )
-	self.SNDTurret = self:AddSoundEmitter( self:WorldToLocal( Muzzle.Pos ), "lvs/vehicles/sherman/cannon_fire.wav", "lvs/vehicles/sherman/cannon_fire.wav" )
+	self.SNDTurret = self:AddSoundEmitter( self:WorldToLocal( Muzzle.Pos ), "^lvs/vehicles/crusader/mk1/cannon_fire_ext.wav", "lvs/vehicles/crusader/mk1/cannon_fire_int.wav" )
 	self.SNDTurret:SetSoundLevel( 95 )
 	self.SNDTurret:SetParent( self, ID )
 end
@@ -30,5 +30,4 @@ function ENT:MakeTurretPhysics()
 		follow = "turret_att",
 		mdl = "models/diggercars/crusader/turret_mk1_col.mdl",
 	} )
-
 end
