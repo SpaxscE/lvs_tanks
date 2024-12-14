@@ -66,6 +66,10 @@ function ENT:InitWeapons()
 				end
 			end
 		end
+
+		local Heat = self:GetHeat()
+		ent:SetPoseParameter("hatch6", Heat/1.15 )
+
 	end
 	weapon.Attack = function( ent )
 		local ID = ent:LookupAttachment( "muzzle" )
