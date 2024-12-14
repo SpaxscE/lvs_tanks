@@ -126,7 +126,7 @@ function ENT:InitWeapons()
 		if not ent.SNDTurret:GetActive() then return end
 
 		ent.SNDTurret:Stop()
-		ent.SNDTurret:EmitSound( "lvs/vehicles/halftrack/mc_lastshot.wav" )
+		ent.SNDTurret:EmitSound( "^lvs/vehicles/crusader/mk2/cannon_fire_lastshot.wav" )
 	end
 	weapon.OnOverheat = function( ent )
 		ent:EmitSound("lvs/vehicles/222/cannon_overheat.wav")

@@ -6,7 +6,7 @@ include("shared.lua")
 include("sh_turret.lua")
 
 function ENT:MakeSoundEmitters()
-	self.SNDTurret = self:AddSoundEmitter( Vector(-63,0,85), "lvs/vehicles/halftrack/mc_loop.wav" )
+	self.SNDTurret = self:AddSoundEmitter( Vector(-63,0,85), "^lvs/vehicles/crusader/mk2/cannon_fire_loop.wav" )
 	self.SNDTurret:SetSoundLevel( 95 )
 end
 
