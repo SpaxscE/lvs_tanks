@@ -58,14 +58,11 @@ function ENT:InitWeapons()
 		end
 	end
 	weapon.Attack = function( ent )
+		ent._swapMuzzle = not ent._swapMuzzle
 
-		ent._MuzzleID = ent._MuzzleID and ent._MuzzleID + 1 or 1
+		local MuzzleID = ent._swapMuzzle and 1 or 2
 
-		if ent._MuzzleID > 2 then
-			ent._MuzzleID = 1
-		end
-
-		local ID = ent:LookupAttachment( "muzzle_"..ent._MuzzleID )
+		local ID = ent:LookupAttachment( "muzzle_"..MuzzleID )
 
 		local Muzzle = ent:GetAttachment( ID )
 
@@ -110,7 +107,7 @@ function ENT:InitWeapons()
 
 		ent:TakeAmmo( 1 )
 
-		ent:PlayAnimation( "turret_fire" )
+		ent:PlayAnimation( "turret_fire_"..MuzzleID )
 
 		if not IsValid( ent.SNDTurret ) then return end
 
