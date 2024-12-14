@@ -28,7 +28,7 @@ if SERVER then
 		LeftTracksArmor.OnRepaired = LeftWheelChain.OnRepaired
 		LeftTracksArmor:SetLabel( "Tracks" )
 
-		local RightTracksArmor = self:AddArmor( Vector(0,-52,15), Angle(0,0,0), Vector(-120,-12,-40), Vector(120,14,40), 1000, self.TurretArmor )
+		local RightTracksArmor = self:AddArmor( Vector(0,-52,15), Angle(0,0,0), Vector(-120,-12,-40), Vector(120,12,40), 1000, self.TurretArmor )
 		RightTracksArmor.OnDestroyed = RightWheelChain.OnDestroyed
 		RightTracksArmor.OnRepaired = RightWheelChain.OnRepaired
 		RightTracksArmor:SetLabel( "Tracks" )
