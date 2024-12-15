@@ -5,7 +5,7 @@
 	
 	"$detail" "models/diggercars/camos/ger_grey_lvs"
 	"$detailblendmode" "4"
-	"$detailscale" "4"
+	"$detailscale" "0.5"
 	
 	"$normalmapalphaenvmapmask" 1
 	"$halflambert" 1

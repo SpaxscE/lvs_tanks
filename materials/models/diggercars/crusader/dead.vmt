@@ -1,7 +1,7 @@
 "VertexlitGeneric"
 {
 	"$basetexture" "models/diggercars/crusader/body"
-	"$bumpmap" "models/diggercars/crusader/body_nm"	
+	"$bumpmap" "models/diggercars/crusader/body_nm"		
 	
 	"$normalmapalphaenvmapmask" 1
 	"$halflambert" 1

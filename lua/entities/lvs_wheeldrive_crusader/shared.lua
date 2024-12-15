@@ -13,11 +13,7 @@ ENT.Spawnable			= true
 ENT.AdminSpawnable		= false
 
 ENT.MDL = "models/diggercars/crusader/crusader.mdl"
-ENT.MDL_DESTROYED = "models/diggercars/cromwell/dead.mdl"
-
-ENT.GibModels = {
-	"models/diggercars/cromwell/turret.mdl",
-}
+ENT.MDL_DESTROYED = "models/diggercars/crusader/dead.mdl"
 
 ENT.AITEAM = 2
 

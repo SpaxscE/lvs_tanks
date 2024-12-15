@@ -13,10 +13,10 @@ function ENT:OnSpawn( PObj )
 	local DoorHandler = self:AddDoorHandler( "engine", Vector(-95.21,0.15,53.98), Angle(0,0,0), Vector(-10,-10,-10), Vector(10,10,10), Vector(-10,-10,-10), Vector(10,10,10) )
 	DoorHandler:SetSoundOpen( "lvs/vehicles/generic/car_hood_open.wav" )
 	DoorHandler:SetSoundClose( "lvs/vehicles/generic/car_hood_close.wav" )
-	local Engine = self:AddEngine( Vector(-90,0,50), Angle(0,180,0) )
+	local Engine = self:AddEngine( Vector(-60,0,50), Angle(0,180,0) )
 	Engine:SetDoorHandler( DoorHandler )
 
-	self:AddFuelTank( Vector(-75,0,40), Angle(0,0,0), 600, LVS.FUELTYPE_PETROL, Vector(-15,-30,-10),Vector(15,30,10) )
+	self:AddFuelTank( Vector(-38,0,31), Angle(0,0,0), 600, LVS.FUELTYPE_PETROL, Vector(-19,-30,-9),Vector(19,30,9) )
 
 	-- turret
 	local TurretArmor = self:AddArmor( Vector(20,0,80), Angle(0,0,0), Vector(-65,-65,-25), Vector(65,65,25), 1000, self.TurretArmor )
@@ -95,11 +95,10 @@ function ENT:OnSpawn( PObj )
 	self:AddArmor( Vector(-20,-35,34), Angle(0,0,0), Vector(-95,-3,-21), Vector(95,3,21), 600, self.SideArmor )
 
 	-- ammo rack weakspot
-	self:AddAmmoRack( Vector(-10,0,32), Vector(15,0,60), Angle(0,0,0), Vector(-4,-26,-9), Vector(4,26,9) )
-	self:AddAmmoRack( Vector(40,0,32), Vector(15,0,60), Angle(0,0,0), Vector(-4,-26,-9), Vector(4,26,9) )
+	self:AddAmmoRack( Vector(3,0,32), Vector(20,0,56), Angle(0,0,0), Vector(-8,-26,-9), Vector(8,26,9) )
 
 	-- trailer hitch
-	self:AddTrailerHitch( Vector(-125,0,24), LVS.HITCHTYPE_MALE )
+	self:AddTrailerHitch( Vector(-120,0,26.5), LVS.HITCHTYPE_MALE )
 
 	self:MakeSoundEmitters()
 	self:MakeDriverSeat()
