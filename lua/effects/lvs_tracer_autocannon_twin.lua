@@ -43,11 +43,11 @@ function EFFECT:Init( data )
 		if not particle then continue end
 
 		particle:SetVelocity( dir * 700 + VectorRand() * 200 )
-		particle:SetDieTime( math.Rand(2,3) )
+		particle:SetDieTime( math.Rand(0.5,1) )
 		particle:SetAirResistance( 250 ) 
 		particle:SetStartAlpha( 50 )
 		particle:SetStartSize( 5 )
-		particle:SetEndSize( 120 )
+		particle:SetEndSize( 80 )
 		particle:SetRollDelta( math.Rand(-1,1) )
 		particle:SetColor( math.min( VecCol.r, 255 ), math.min( VecCol.g, 255 ), math.min( VecCol.b, 255 ) )
 		particle:SetGravity( Vector(0,0,100) )
@@ -96,7 +96,7 @@ function EFFECT:Init( data )
 		particle:SetEndSize( 80 )
 		particle:SetRollDelta( math.Rand(-1,1) )
 		particle:SetColor( math.min( VecCol.r, 255 ), math.min( VecCol.g, 255 ), math.min( VecCol.b, 255 ) )
-		particle:SetGravity( Vector(0,0,150) + self.Dir * 2000 )
+		particle:SetGravity( Vector(0,0,150) + self.Dir * 1000 )
 		particle:SetCollide( false )
 	end
 
@@ -156,7 +156,7 @@ function EFFECT:Think()
 
 	local Vel = bullet.Velocity / 10
 
-	for i = 0, Dist, 25 do
+	for i = 0, Dist, 100 do
 		local cur_pos = self.OldPos + Dir * i
 
 		local VecCol = (render.GetLightColor( cur_pos ) * 0.8 + Vector(0.2,0.2,0.2)) * 255
