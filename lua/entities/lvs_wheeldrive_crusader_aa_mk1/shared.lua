@@ -98,7 +98,7 @@ function ENT:InitWeapons()
 		if ent:GetUseHighExplosive() then
 			bullet.Force	= 500
 			bullet.HullSize 	= 60 * math.max( bullet.Dir.z, 0 )
-			bullet.Damage	= 100
+			bullet.Damage	= 110
 			bullet.SplashDamage = 100
 			bullet.SplashDamageRadius = 150
 			bullet.SplashDamageEffect = "lvs_defence_explosion"
@@ -109,7 +109,7 @@ function ENT:InitWeapons()
 			bullet.Force1km = ent.CannonArmorPenetration1km
 
 			bullet.HullSize	= 1
-			bullet.Damage	= 100
+			bullet.Damage	= 110
 			bullet.Velocity = ent.ProjectileVelocityArmorPiercing
 		end
 
