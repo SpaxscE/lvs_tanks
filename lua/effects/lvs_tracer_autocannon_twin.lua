@@ -168,7 +168,7 @@ function EFFECT:Think()
 		particle:SetVelocity( -Dir * Vel + VectorRand() * 10 )
 		particle:SetDieTime( math.Rand(0.05,1) )
 		particle:SetAirResistance( 250 )
-		particle:SetStartAlpha( 50 )
+		particle:SetStartAlpha( 100 )
 		particle:SetEndAlpha( 0 )
 
 		particle:SetStartSize( 0 )
