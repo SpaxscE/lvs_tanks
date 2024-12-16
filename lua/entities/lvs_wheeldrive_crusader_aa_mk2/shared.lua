@@ -105,6 +105,7 @@ function ENT:InitWeapons()
 
 			local MuzzlePos2D = traceTurret.HitPos:ToScreen() 
 
+			ent:PaintCrosshairCenter( MuzzlePos2D, COLOR_WHITE )
 			ent:PaintCrosshairOuter( MuzzlePos2D, COLOR_WHITE )
 
 			ent:LVSPaintHitMarker( MuzzlePos2D )

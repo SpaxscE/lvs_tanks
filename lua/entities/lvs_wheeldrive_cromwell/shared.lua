@@ -71,7 +71,7 @@ ENT.EngineSounds = {
 		SoundType = LVS.SOUNDTYPE_IDLE_ONLY,
 	},
 	{
-		sound = "lvs/vehicles/sherman/eng_loop.wav",
+		sound = "lvs/vehicles/cromwell/eng_loop.wav",
 		Volume = 1,
 		Pitch = 20,
 		PitchMul = 90,

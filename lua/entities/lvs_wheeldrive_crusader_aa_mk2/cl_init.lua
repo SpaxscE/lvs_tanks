@@ -5,6 +5,8 @@ include("cl_optics.lua")
 ENT.TrackLeftSubMaterialID = 5
 ENT.TrackRightSubMaterialID = 6
 
+ENT.IconSlot1 = Material("lvs/weapons/flak.png")
+
 function ENT:OnFrame()
 	local Heat = 0
 	if self:GetSelectedWeapon() == 1 then

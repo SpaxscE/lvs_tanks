@@ -154,7 +154,8 @@ function ENT:InitWeapons()
 			local MuzzlePos2D = traceTurret.HitPos:ToScreen() 
 
 			if ent:GetUseHighExplosive() then
-				ent:PaintCrosshairSquare( MuzzlePos2D, COLOR_WHITE )
+				ent:PaintCrosshairCenter( MuzzlePos2D, COLOR_WHITE )
+				ent:PaintCrosshairOuter( MuzzlePos2D, COLOR_WHITE )
 			else
 				ent:PaintCrosshairOuter( MuzzlePos2D, COLOR_WHITE )
 			end

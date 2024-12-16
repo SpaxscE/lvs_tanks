@@ -7,11 +7,12 @@ include("cl_tankview.lua")
 ENT.TrackLeftSubMaterialID = 7
 ENT.TrackRightSubMaterialID = 8
 
-local switch = Material("lvs/weapons/change_ammo.png")
-local AP = Material("lvs/weapons/bullet_ap.png")
-local HE = Material("lvs/weapons/tank_cannon.png")
+ENT.IconSwitch = Material("lvs/weapons/change_ammo.png")
+ENT.IconSlot1 = Material("lvs/weapons/bullet_ap.png")
+ENT.IconSlot2 = Material("lvs/weapons/tank_cannon.png")
+
 function ENT:DrawWeaponIcon( PodID, ID, x, y, width, height, IsSelected, IconColor )
-	local Icon = self:GetUseHighExplosive() and HE or AP
+	local Icon = self:GetUseHighExplosive() and self.IconSlot2 or self.IconSlot1
 
 	surface.SetMaterial( Icon )
 	surface.DrawTexturedRect( x, y, width, height )
@@ -20,7 +21,7 @@ function ENT:DrawWeaponIcon( PodID, ID, x, y, width, height, IsSelected, IconCol
 
 	if not IsValid( ply ) or self:GetSelectedWeapon() ~= 2 then return end
 
-	surface.SetMaterial( switch )
+	surface.SetMaterial( self.IconSwitch )
 	surface.DrawTexturedRect( x + width + 5, y + 7, 24, 24 )
 
 	local buttonCode = ply:lvsGetControls()[ "CAR_SWAP_AMMO" ]
@@ -36,6 +37,8 @@ end
 
 function ENT:OnEngineActiveChanged( Active )
 	if Active then
-		self:EmitSound( "lvs/vehicles/sherman/engine_start.wav", 75, 100,  LVS.EngineVolume )
+		self:EmitSound( "lvs/vehicles/crusader/engine_start.wav", 75, 100,  LVS.EngineVolume )
+	else
+		self:EmitSound( "lvs/vehicles/crusader/engine_stop.wav", 75, 100,  LVS.EngineVolume )
 	end
 end
