@@ -37,9 +37,9 @@ local LoadoutsWeapons = {
 		[1] = { -- pod #1 (driver)
 			[1] = { -- weapon #1
 				Ammo = 44,
-				Delay = 3.3,
+				Delay = 3.2,
 				HeatRateUp = 1,
-				HeatRateDown = 0.22,
+				HeatRateDown = 0.33,
 			},
 		},
 	},

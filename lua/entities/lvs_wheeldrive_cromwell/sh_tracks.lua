@@ -2,7 +2,7 @@
 if SERVER then
 	ENT.PivotSteerEnable = true
 	ENT.PivotSteerByBrake = true
-	ENT.PivotSteerWheelRPM = 40
+	ENT.PivotSteerWheelRPM = 60
 
 	function ENT:TracksCreate( PObj )
 		local WheelModel = "models/diggercars/cromwell/wh.mdl"
