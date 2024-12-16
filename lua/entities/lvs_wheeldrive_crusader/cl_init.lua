@@ -11,6 +11,8 @@ ENT.IconSwitch = Material("lvs/weapons/change_ammo.png")
 ENT.IconSlot1 = Material("lvs/weapons/bullet_ap.png")
 ENT.IconSlot2 = Material("lvs/weapons/tank_cannon.png")
 
+ENT.IconSlotWeaponID = 2
+
 function ENT:DrawWeaponIcon( PodID, ID, x, y, width, height, IsSelected, IconColor )
 	local Icon = self:GetUseHighExplosive() and self.IconSlot2 or self.IconSlot1
 
@@ -19,7 +21,7 @@ function ENT:DrawWeaponIcon( PodID, ID, x, y, width, height, IsSelected, IconCol
 
 	local ply = LocalPlayer()
 
-	if not IsValid( ply ) or self:GetSelectedWeapon() ~= 2 then return end
+	if not IsValid( ply ) or self:GetSelectedWeapon() ~= self.IconSlotWeaponID then return end
 
 	surface.SetMaterial( self.IconSwitch )
 	surface.DrawTexturedRect( x + width + 5, y + 7, 24, 24 )
