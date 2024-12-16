@@ -41,9 +41,9 @@ function ENT:PaintOptics( Pos2D, Col, PodIndex, Type )
 	surface.DrawTexturedRect( Pos2D.x - size * 0.5, Pos2D.y - size * 0.5, size, size )
 
 	if Type == 1 then
-		self:DrawRotatedText( "BESA", Pos2D.x + 30, Pos2D.y + 10, "LVS_FONT_PANEL", Color(0,0,0,220), 0)
+		self:DrawRotatedText( "BESA", Pos2D.x + 30, Pos2D.y + 15, "LVS_FONT_PANEL", Color(0,0,0,220), 0)
 	else
-		self:DrawRotatedText( Type == 3 and "HE" or "APC", Pos2D.x + 30, Pos2D.y + 10, "LVS_FONT_PANEL", Color(0,0,0,220), 0)
+		self:DrawRotatedText( Type == 3 and "HE" or "APC", Pos2D.x + 30, Pos2D.y + 15, "LVS_FONT_PANEL", Color(0,0,0,220), 0)
 	end
 
 	local ScrW = ScrW()
