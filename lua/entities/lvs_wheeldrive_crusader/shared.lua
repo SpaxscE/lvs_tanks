@@ -94,6 +94,70 @@ end
 function ENT:InitWeapons()
 	local COLOR_WHITE = Color(255,255,255,255)
 
+	-- coaxial machinegun
+	local weapon = {}
+	weapon.Icon = Material("lvs/weapons/mg.png")
+	weapon.Ammo = 2000
+	weapon.Delay = 0.1
+	weapon.HeatRateUp = 0.2
+	weapon.HeatRateDown = 0.25
+	weapon.Attack = function( ent )
+		local ID = ent:LookupAttachment( "muzzle_coax" )
+
+		local Muzzle = ent:GetAttachment( ID )
+
+		if not Muzzle then return end
+
+		local bullet = {}
+		bullet.Src 	= Muzzle.Pos
+		bullet.Dir 	= Muzzle.Ang:Forward()
+		bullet.Spread = Vector(0.01,0.01,0.01)
+		bullet.TracerName = "lvs_tracer_yellow_small"
+		bullet.Force	= 10
+		bullet.EnableBallistics = true
+		bullet.HullSize 	= 0
+		bullet.Damage	= 25
+		bullet.Velocity = ent.ProjectileVelocityCoaxial
+		bullet.Attacker 	= ent:GetDriver()
+		ent:LVSFireBullet( bullet )
+
+		local effectdata = EffectData()
+		effectdata:SetOrigin( bullet.Src )
+		effectdata:SetNormal( bullet.Dir )
+		effectdata:SetEntity( ent )
+		util.Effect( "lvs_muzzle", effectdata )
+
+		ent:TakeAmmo( 1 )
+	end
+	weapon.StartAttack = function( ent )
+		if not IsValid( ent.SNDTurretMG ) then return end
+		ent.SNDTurretMG:Play()
+	end
+	weapon.FinishAttack = function( ent )
+		if not IsValid( ent.SNDTurretMG ) then return end
+		ent.SNDTurretMG:Stop()
+	end
+	weapon.OnOverheat = function( ent ) ent:EmitSound("lvs/overheat.wav") end
+	weapon.HudPaint = function( ent, X, Y, ply )
+		local ID = ent:LookupAttachment(  "muzzle_coax" )
+
+		local Muzzle = ent:GetAttachment( ID )
+
+		if Muzzle then
+			local traceTurret = util.TraceLine( {
+				start = Muzzle.Pos,
+				endpos = Muzzle.Pos + Muzzle.Ang:Forward() * 50000,
+				filter = ent:GetCrosshairFilterEnts()
+			} )
+
+			local MuzzlePos2D = traceTurret.HitPos:ToScreen() 
+
+			ent:PaintCrosshairCenter( MuzzlePos2D, COLOR_WHITE )
+			ent:LVSPaintHitMarker( MuzzlePos2D )
+		end
+	end
+	self:AddWeapon( weapon )
+
 	local weapon = {}
 	weapon.Icon = true
 	weapon.Ammo = 64
@@ -101,7 +165,7 @@ function ENT:InitWeapons()
 	weapon.HeatRateUp = 1
 	weapon.HeatRateDown = 0.4
 	weapon.OnThink = function( ent )
-		if ent:GetSelectedWeapon() ~= 1 then return end
+		if ent:GetSelectedWeapon() ~= 2 then return end
 
 		local ply = ent:GetDriver()
 
@@ -200,70 +264,6 @@ function ENT:InitWeapons()
 				ent:PaintCrosshairOuter( MuzzlePos2D, COLOR_WHITE )
 			end
 
-			ent:LVSPaintHitMarker( MuzzlePos2D )
-		end
-	end
-	self:AddWeapon( weapon )
-
-	-- coaxial machinegun
-	local weapon = {}
-	weapon.Icon = Material("lvs/weapons/mg.png")
-	weapon.Ammo = 2000
-	weapon.Delay = 0.1
-	weapon.HeatRateUp = 0.2
-	weapon.HeatRateDown = 0.25
-	weapon.Attack = function( ent )
-		local ID = ent:LookupAttachment( "muzzle_coax" )
-
-		local Muzzle = ent:GetAttachment( ID )
-
-		if not Muzzle then return end
-
-		local bullet = {}
-		bullet.Src 	= Muzzle.Pos
-		bullet.Dir 	= Muzzle.Ang:Forward()
-		bullet.Spread = Vector(0.01,0.01,0.01)
-		bullet.TracerName = "lvs_tracer_yellow_small"
-		bullet.Force	= 10
-		bullet.EnableBallistics = true
-		bullet.HullSize 	= 0
-		bullet.Damage	= 25
-		bullet.Velocity = ent.ProjectileVelocityCoaxial
-		bullet.Attacker 	= ent:GetDriver()
-		ent:LVSFireBullet( bullet )
-
-		local effectdata = EffectData()
-		effectdata:SetOrigin( bullet.Src )
-		effectdata:SetNormal( bullet.Dir )
-		effectdata:SetEntity( ent )
-		util.Effect( "lvs_muzzle", effectdata )
-
-		ent:TakeAmmo( 1 )
-	end
-	weapon.StartAttack = function( ent )
-		if not IsValid( ent.SNDTurretMG ) then return end
-		ent.SNDTurretMG:Play()
-	end
-	weapon.FinishAttack = function( ent )
-		if not IsValid( ent.SNDTurretMG ) then return end
-		ent.SNDTurretMG:Stop()
-	end
-	weapon.OnOverheat = function( ent ) ent:EmitSound("lvs/overheat.wav") end
-	weapon.HudPaint = function( ent, X, Y, ply )
-		local ID = ent:LookupAttachment(  "muzzle_coax" )
-
-		local Muzzle = ent:GetAttachment( ID )
-
-		if Muzzle then
-			local traceTurret = util.TraceLine( {
-				start = Muzzle.Pos,
-				endpos = Muzzle.Pos + Muzzle.Ang:Forward() * 50000,
-				filter = ent:GetCrosshairFilterEnts()
-			} )
-
-			local MuzzlePos2D = traceTurret.HitPos:ToScreen() 
-
-			ent:PaintCrosshairCenter( MuzzlePos2D, COLOR_WHITE )
 			ent:LVSPaintHitMarker( MuzzlePos2D )
 		end
 	end

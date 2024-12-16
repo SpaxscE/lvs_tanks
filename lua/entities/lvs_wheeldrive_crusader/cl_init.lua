@@ -18,7 +18,7 @@ function ENT:DrawWeaponIcon( PodID, ID, x, y, width, height, IsSelected, IconCol
 
 	local ply = LocalPlayer()
 
-	if not IsValid( ply ) or self:GetSelectedWeapon() ~= 1 then return end
+	if not IsValid( ply ) or self:GetSelectedWeapon() ~= 2 then return end
 
 	surface.SetMaterial( switch )
 	surface.DrawTexturedRect( x + width + 5, y + 7, 24, 24 )
