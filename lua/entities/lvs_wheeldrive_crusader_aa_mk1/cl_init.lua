@@ -5,4 +5,6 @@ include("cl_optics.lua")
 ENT.TrackLeftSubMaterialID = 5
 ENT.TrackRightSubMaterialID = 6
 
-ENT.IconSlot2 = Material("lvs/weapons/flak.png")
+ENT.IconSlot2 = Material("lvs/weapons/flak_he.png")
+
+ENT.IconSlotWeaponID = 1
