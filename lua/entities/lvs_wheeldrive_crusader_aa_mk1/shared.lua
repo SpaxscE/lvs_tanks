@@ -108,7 +108,7 @@ function ENT:InitWeapons()
 			bullet.Force	= ent.CannonArmorPenetration
 			bullet.Force1km = ent.CannonArmorPenetration1km
 
-			bullet.HullSize	= 1
+			bullet.HullSize	= 15 * math.max( bullet.Dir.z, 0 )
 			bullet.Damage	= 110
 			bullet.Velocity = ent.ProjectileVelocityArmorPiercing
 		end
@@ -155,8 +155,9 @@ function ENT:InitWeapons()
 
 			if ent:GetUseHighExplosive() then
 				ent:PaintCrosshairCenter( MuzzlePos2D, COLOR_WHITE )
-				ent:PaintCrosshairOuter( MuzzlePos2D, COLOR_WHITE )
+				ent:PaintCrosshairSquare( MuzzlePos2D, COLOR_WHITE )
 			else
+				ent:PaintCrosshairCenter( MuzzlePos2D, COLOR_WHITE )
 				ent:PaintCrosshairOuter( MuzzlePos2D, COLOR_WHITE )
 			end
 
