@@ -8,7 +8,7 @@ ENT.OpticsPodIndex = {
 	[1] = true,
 }
 
-local scope = Material( "lvs/sight_empty.png" )
+local scope = Material( "lvs/scope_viewblocked.png" )
 local aim = Material( "lvs/28pdr_aim.png" )
 local rot = Material( "lvs/28pdr_sight.png" )
 
