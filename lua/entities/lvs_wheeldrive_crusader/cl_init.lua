@@ -1,7 +1,7 @@
 include("shared.lua")
 include("sh_tracks.lua")
 include("sh_turret.lua")
-include("cl_optics.lua")
+include("entities/lvs_wheeldrive_cromwell/cl_optics.lua")
 include("cl_tankview.lua")
 
 ENT.TrackLeftSubMaterialID = 7
