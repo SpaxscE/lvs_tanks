@@ -5,6 +5,8 @@ if SERVER then
 	ENT.PivotSteerWheelRPM = 60
 
 	function ENT:TracksCreate( PObj )
+		self:CreateTrackPhysics( "models/diggercars/crusader/tracks_col.mdl" )
+
 		local WheelModel = "models/diggercars/cromwell/wh.mdl"
 
 		local L1 = self:AddWheel( { hide = true, wheeltype = LVS.WHEELTYPE_LEFT, pos = Vector(90,46,30), mdl = WheelModel } )
