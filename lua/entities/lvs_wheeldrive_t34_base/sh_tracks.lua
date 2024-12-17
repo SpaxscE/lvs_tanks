@@ -10,24 +10,6 @@ if SERVER then
 
 	function ENT:OnLeftTrackDestroyed()
 		self:SetBodygroup(2,1)
-
-		local rag = ents.Create( "prop_ragdoll" )
-		rag:SetModel( "models/diggercars/t34/tracks_testragdoll_front2.mdl" )
-		rag:SetPos( self:LocalToWorld( Vector(0,50.5,50) ) )
-		rag:SetAngles( self:LocalToWorldAngles( Angle(90,-90,0) ) )
-		rag:Spawn()
-		rag:Activate()
-		rag:SetCollisionGroup( COLLISION_GROUP_DEBRIS )
-		self:DeleteOnRemove( rag )
-
-		local rag = ents.Create( "prop_ragdoll" )
-		rag:SetModel( "models/diggercars/t34/tracks_testragdoll_rear7.mdl" )
-		rag:SetPos( self:LocalToWorld( Vector(0,50.5,50) ) )
-		rag:SetAngles( self:LocalToWorldAngles( Angle(90,-90,0) ) )
-		rag:Spawn()
-		rag:Activate()
-		rag:SetCollisionGroup( COLLISION_GROUP_DEBRIS )
-		self:DeleteOnRemove( rag )
 	end
 
 	function ENT:OnRightTrackRepaired()
@@ -36,24 +18,6 @@ if SERVER then
 
 	function ENT:OnRightTrackDestroyed()
 		self:SetBodygroup(3,1)
-
-		local rag = ents.Create( "prop_ragdoll" )
-		rag:SetModel( "models/diggercars/t34/tracks_testragdoll_front2.mdl" )
-		rag:SetPos( self:LocalToWorld( Vector(0,-50.5,50) ) )
-		rag:SetAngles( self:LocalToWorldAngles( Angle(90,-90,0) ) )
-		rag:Spawn()
-		rag:Activate()
-		rag:SetCollisionGroup( COLLISION_GROUP_DEBRIS )
-		self:DeleteOnRemove( rag )
-
-		local rag = ents.Create( "prop_ragdoll" )
-		rag:SetModel( "models/diggercars/t34/tracks_testragdoll_rear7.mdl" )
-		rag:SetPos( self:LocalToWorld( Vector(0,-50.5,50) ) )
-		rag:SetAngles( self:LocalToWorldAngles( Angle(90,-90,0) ) )
-		rag:Spawn()
-		rag:Activate()
-		rag:SetCollisionGroup( COLLISION_GROUP_DEBRIS )
-		self:DeleteOnRemove( rag )
 	end
 
 	function ENT:TracksCreate( PObj )
@@ -146,6 +110,33 @@ if SERVER then
 	end
 else
 	ENT.TrackSystemEnable = true
+
+	ENT.TrackGibs = {
+		["left"] = {
+			{
+				mdl = "models/diggercars/t34/tracks_testragdoll_front2.mdl",
+				pos = Vector(0,50.5,50),
+				ang = Angle(90,-90,0),
+			},
+			{
+				mdl = "models/diggercars/t34/tracks_testragdoll_rear7.mdl",
+				pos = Vector(0,50.5,50),
+				ang = Angle(90,-90,0),
+			},
+		},
+		["right"] = {
+			{
+				mdl = "models/diggercars/t34/tracks_testragdoll_front2.mdl",
+				pos = Vector(0,-50.5,50),
+				ang = Angle(90,-90,0),
+			},
+			{
+				mdl = "models/diggercars/t34/tracks_testragdoll_rear7.mdl",
+				pos = Vector(0,-50.5,50),
+				ang = Angle(90,-90,0),
+			},
+		}
+	}
 
 	ENT.TrackScrollTexture = "models/diggercars/t34/tracks"
 	ENT.ScrollTextureData = {
