@@ -55,9 +55,9 @@ function ENT:PaintOptics( Pos2D, Col, PodIndex, Type )
 	local TurretBallisticsValue = self:GetTurretCompensation()
 
 	-- how much scope offsets
-	local Offset = (TurretBallisticsValue / ScrH) * 50
+	local Offset = (TurretBallisticsValue / ScrH) * 40
 
-	local ScopeSize = ScrH * 0.85
+	local ScopeSize = ScrH
 
 	surface.SetMaterial( sight )
 	surface.SetDrawColor( 0, 0, 0, 255 )
