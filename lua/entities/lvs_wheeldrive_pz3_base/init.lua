@@ -86,8 +86,6 @@ function ENT:MakeArmor()
 
 	-- turret
 	local TurretArmor = self:AddArmor( Vector(25,0,60), Angle(0,0,0), Vector(-45,-40,0), Vector(32,40,30), 1200, self.TurretArmor )
-	TurretArmor.OnDestroyed = function( ent, dmginfo ) if not IsValid( self ) then return end self:SetTurretDestroyed( true ) end
-	TurretArmor.OnRepaired = function( ent ) if not IsValid( self ) then return end self:SetTurretDestroyed( false ) end
 	TurretArmor:SetLabel( "Turret" )
 	self:SetTurretArmor( TurretArmor )
 
