@@ -21,3 +21,19 @@ function ENT:MakeSoundEmitters()
 	self.SNDTurret:SetSoundLevel( 95 )
 	self.SNDTurret:SetParent( self, ID )
 end
+
+function ENT:OnLeftTrackRepaired()
+	self:SetBodygroup(2,0)
+end
+
+function ENT:OnLeftTrackDestroyed()
+	self:SetBodygroup(2,1)
+end
+
+function ENT:OnRightTrackRepaired()
+	self:SetBodygroup(3,0)
+end
+
+function ENT:OnRightTrackDestroyed()
+	self:SetBodygroup(3,1)
+end

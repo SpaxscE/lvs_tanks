@@ -43,3 +43,19 @@ function ENT:OnTick()
 		DoorHandler:SetPoseMin( PoseValue )
 	end
 end
+
+function ENT:OnLeftTrackRepaired()
+	self:SetBodygroup(4,0)
+end
+
+function ENT:OnLeftTrackDestroyed()
+	self:SetBodygroup(4,1)
+end
+
+function ENT:OnRightTrackRepaired()
+	self:SetBodygroup(5,0)
+end
+
+function ENT:OnRightTrackDestroyed()
+	self:SetBodygroup(5,1)
+end

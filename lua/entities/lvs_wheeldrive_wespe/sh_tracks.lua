@@ -4,6 +4,22 @@ if SERVER then
 	ENT.PivotSteerByBrake = true
 	ENT.PivotSteerWheelRPM = 40
 
+	function ENT:OnLeftTrackRepaired()
+		self:SetBodygroup(2,0)
+	end
+
+	function ENT:OnLeftTrackDestroyed()
+		self:SetBodygroup(2,1)
+	end
+
+	function ENT:OnRightTrackRepaired()
+		self:SetBodygroup(1,0)
+	end
+
+	function ENT:OnRightTrackDestroyed()
+		self:SetBodygroup(1,1)
+	end
+
 	function ENT:TracksCreate( PObj )
 		self:CreateTrackPhysics( "models/diggercars/pz2/tracks_col.mdl" )
 
@@ -26,14 +42,10 @@ if SERVER then
 		self:SetTrackDriveWheelRight( R4 )
 
 		local LeftTracksArmor = self:AddArmor( Vector(0,38,40), Angle(0,0,0), Vector(-96,-9,-60), Vector(96,19,5), 400, 1200 )
-		LeftTracksArmor.OnDestroyed = LeftWheelChain.OnDestroyed
-		LeftTracksArmor.OnRepaired = LeftWheelChain.OnRepaired
-		LeftTracksArmor:SetLabel( "Tracks" )
+		self:SetTrackArmorLeft( LeftTracksArmor, LeftWheelChain )
 
 		local RightTracksArmor = self:AddArmor( Vector(0,-38,40), Angle(0,0,0), Vector(-96,-19,-60), Vector(96,9,5), 400, 1200 )
-		RightTracksArmor.OnDestroyed = RightWheelChain.OnDestroyed
-		RightTracksArmor.OnRepaired = RightWheelChain.OnRepaired
-		RightTracksArmor:SetLabel( "Tracks" )
+		self:SetTrackArmorRight( RightTracksArmor, RightWheelChain )
 
 		self:DefineAxle( {
 			Axle = {
