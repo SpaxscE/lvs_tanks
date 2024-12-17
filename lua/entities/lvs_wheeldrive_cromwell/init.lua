@@ -120,7 +120,6 @@ function ENT:OnSpawn( PObj )
 	self:AddTrailerHitch( Vector(-125,0,24), LVS.HITCHTYPE_MALE )
 
 	self:MakeTurretPhysics()
-	self:MakeTrackPhysics()
 end
 
 function ENT:MakeTurretPhysics()
@@ -129,8 +128,4 @@ function ENT:MakeTurretPhysics()
 		follow = "turret_att",
 		mdl = "models/diggercars/cromwell/turret_col.mdl",
 	} )
-end
-
-function ENT:MakeTrackPhysics()
-	self:CreateTrackPhysics( "models/diggercars/cromwell/tracks_col.mdl" )
 end
