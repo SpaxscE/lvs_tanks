@@ -73,8 +73,6 @@ function ENT:OnSpawn( PObj )
 
 	-- turret
 	local TurretArmor = self:AddArmor( Vector(15,5,60), Angle(0,0,0), Vector(-40,-30,0), Vector(34,34,24), 500, self.TurretArmor )
-	TurretArmor.OnDestroyed = function( ent, dmginfo ) if not IsValid( self ) then return end self:SetTurretDestroyed( true ) end
-	TurretArmor.OnRepaired = function( ent ) if not IsValid( self ) then return end self:SetTurretDestroyed( false ) end
 	TurretArmor:SetLabel( "Turret" )
 	self:SetTurretArmor( TurretArmor )
 
