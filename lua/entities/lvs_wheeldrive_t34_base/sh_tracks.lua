@@ -10,6 +10,24 @@ if SERVER then
 
 	function ENT:OnLeftTrackDestroyed()
 		self:SetBodygroup(2,1)
+
+		local rag = ents.Create( "prop_ragdoll" )
+		rag:SetModel( "models/diggercars/t34/tracks_testragdoll_front2.mdl" )
+		rag:SetPos( self:LocalToWorld( Vector(0,50.5,50) ) )
+		rag:SetAngles( self:LocalToWorldAngles( Angle(90,-90,0) ) )
+		rag:SetCollisionGroup( COLLISION_GROUP_DEBRIS )
+		rag:Spawn()
+		rag:Activate()
+		self:DeleteOnRemove( rag )
+
+		local rag = ents.Create( "prop_ragdoll" )
+		rag:SetModel( "models/diggercars/t34/tracks_testragdoll_rear7.mdl" )
+		rag:SetPos( self:LocalToWorld( Vector(0,50.5,50) ) )
+		rag:SetAngles( self:LocalToWorldAngles( Angle(90,-90,0) ) )
+		rag:SetCollisionGroup( COLLISION_GROUP_DEBRIS )
+		rag:Spawn()
+		rag:Activate()
+		self:DeleteOnRemove( rag )
 	end
 
 	function ENT:OnRightTrackRepaired()
@@ -18,6 +36,24 @@ if SERVER then
 
 	function ENT:OnRightTrackDestroyed()
 		self:SetBodygroup(3,1)
+
+		local rag = ents.Create( "prop_ragdoll" )
+		rag:SetModel( "models/diggercars/t34/tracks_testragdoll_front2.mdl" )
+		rag:SetPos( self:LocalToWorld( Vector(0,-50.5,50) ) )
+		rag:SetAngles( self:LocalToWorldAngles( Angle(90,-90,0) ) )
+		rag:SetCollisionGroup( COLLISION_GROUP_WORLD )
+		rag:Spawn()
+		rag:Activate()
+		self:DeleteOnRemove( rag )
+
+		local rag = ents.Create( "prop_ragdoll" )
+		rag:SetModel( "models/diggercars/t34/tracks_testragdoll_rear7.mdl" )
+		rag:SetPos( self:LocalToWorld( Vector(0,-50.5,50) ) )
+		rag:SetAngles( self:LocalToWorldAngles( Angle(90,-90,0) ) )
+		rag:SetCollisionGroup( COLLISION_GROUP_WORLD )
+		rag:Spawn()
+		rag:Activate()
+		self:DeleteOnRemove( rag )
 	end
 
 	function ENT:TracksCreate( PObj )
