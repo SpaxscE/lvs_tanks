@@ -128,5 +128,4 @@ function ENT:MakeTurretPhysics()
 		follow = "turret_att",
 		mdl = "models/diggercars/cromwell/turret_col.mdl",
 	} )
-
 end
