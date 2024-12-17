@@ -49,7 +49,6 @@ function ENT:MakeArmor()
 
 	-- viewport armor weakspot
 	self:AddArmor( Vector(71,23,52.5), Angle(0,0,0), Vector(-1,-6,-0.3), Vector(1,6,0.3), 200, self.RoofArmor )
-	self:AddDriverViewPort( Vector(71,23,52.5), Angle(0,0,0), Vector(-1,-6,-0.3), Vector(1,6,0.3) )
 
 	-- front top
 	self:AddArmor( Vector(85,0,49), Angle(-85,0,0), Vector(-1,-36,-15), Vector(1,36,15), 600, self.SideArmor )

@@ -79,9 +79,6 @@ function ENT:OnSpawn( PObj )
 	-- rear
 	self:AddArmor( Vector(-73,0,20), Angle(-15,0,0), Vector(-10,-30,-5),Vector(10,30,30), 200, self.RearArmor )
 
-	-- driver viewport weakstop
-	self:AddDriverViewPort( Vector(61.3,9.63,51.14), Angle(0,0,0), Vector(-2,-7,-2), Vector(2,7,2) )
-
 	-- ammo rack weakspot
 	self:AddAmmoRack( Vector(8.5,-15,52), Vector(12,0,60), Angle(0,0,0), Vector(-21,-6,-3), Vector(21,6,3) )
 	self:AddAmmoRack( Vector(-3,33,52), Vector(12,0,60), Angle(0,0,0), Vector(-21,-6,-3), Vector(21,6,3) )
