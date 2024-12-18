@@ -187,3 +187,29 @@ function ENT:InitWeapons()
 	end
 	self:AddWeapon( weapon )
 end
+
+
+ENT.Lights = {
+	{
+		Trigger = "main",
+		Sprites = {
+			{ pos = "m", colorB = 200, colorA = 150, },
+		},
+		ProjectedTextures = {
+			{ pos = "m", ang = Angle(0,0,0), colorB = 200, colorA = 150, shadows = true },
+		},
+	},
+	{
+		Trigger = "high",
+		SubMaterialID = 1,
+		SubMaterialBrightness = 20,
+		Sprites = {
+			{ pos = "h", colorB = 200, colorA = 150 },
+		},
+		ProjectedTextures = {
+			{ pos = "h", ang = Angle(0,0,0), colorB = 200, colorA = 150, shadows = true },
+		},
+	},
+
+
+}
