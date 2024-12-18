@@ -15,7 +15,7 @@ if SERVER then
 		["right"] = {
 			{
 				mdl = "models/diggercars/cromwell/tracks_ragdoll.mdl",
-				pos = Vector(0,-1.2,0),
+				pos = Vector(0,-51.2,0),
 				ang = Angle(-90,-90,0),
 			},
 		}
