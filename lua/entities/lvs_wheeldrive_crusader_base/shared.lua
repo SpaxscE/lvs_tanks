@@ -9,7 +9,7 @@ ENT.Category = "[LVS] - Tanks"
 ENT.VehicleCategory = "Tanks"
 ENT.VehicleSubCategory = "Light"
 
-ENT.Spawnable			= true
+ENT.Spawnable			= false
 ENT.AdminSpawnable		= false
 
 ENT.MDL = "models/diggercars/crusader/crusader.mdl"
@@ -78,11 +78,11 @@ ENT.EngineSounds = {
 
 ENT.ExhaustPositions = {
 	{
-		pos = Vector(-90.47,17.01,52.77),
+		pos = Vector(-111.09,-45.47,52.09),
 		ang = Angle(180,0,0)
 	},
 	{
-		pos = Vector(-90.47,-17.01,52.77),
+		pos = Vector(-111.09,45.47,52.09),
 		ang = Angle(180,0,0)
 	},
 }
@@ -290,27 +290,3 @@ function ENT:InitWeapons()
 end
 
 
-ENT.Lights = {
-	{
-		Trigger = "main",
-		Sprites = {
-			{ pos = "m", colorB = 200, colorA = 150, },
-		},
-		ProjectedTextures = {
-			{ pos = "m", ang = Angle(0,0,0), colorB = 200, colorA = 150, shadows = true },
-		},
-	},
-	{
-		Trigger = "high",
-		SubMaterialID = 5,
-		SubMaterialBrightness = 20,
-		Sprites = {
-			{ pos = "h", colorB = 200, colorA = 150 },
-		},
-		ProjectedTextures = {
-			{ pos = "h", ang = Angle(0,0,0), colorB = 200, colorA = 150, shadows = true },
-		},
-	},
-
-
-}

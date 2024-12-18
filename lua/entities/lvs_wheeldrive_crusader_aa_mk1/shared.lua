@@ -1,5 +1,5 @@
 
-ENT.Base = "lvs_wheeldrive_crusader"
+ENT.Base = "lvs_wheeldrive_crusader_base"
 
 ENT.PrintName = "Crusader AA Mk.I"
 ENT.Author = "Digger"
