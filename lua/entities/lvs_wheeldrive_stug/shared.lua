@@ -25,6 +25,7 @@ ENT.CannonArmorPenetration = 13700
 ENT.CannonArmorPenetration1km = 8000
 
 ENT.CannonReloadSound = "lvs/vehicles/tiger/cannon_reload.wav"
+ENT.CannonUnloadSound = "lvs/vehicles/tiger/cannon_unload.wav"
 
 --damage system
 ENT.DSArmorIgnoreForce = 1000
@@ -139,7 +140,7 @@ function ENT:InitWeapons()
 				ent:SetUseHighExplosive( not ent:GetUseHighExplosive() )
 				ent:SetHeat( 1 )
 				ent:SetOverheated( true )
-				ent:EmitSound("lvs/vehicles/tiger/cannon_unload.wav", 75, 100, 1, CHAN_WEAPON )
+				ent:EmitSound(ent.CannonUnloadSound, 75, 100, 1, CHAN_WEAPON )
 
 				if ent:GetUseHighExplosive() then
 					ent:TurretUpdateBallistics( ent.ProjectileVelocityHighExplosive )

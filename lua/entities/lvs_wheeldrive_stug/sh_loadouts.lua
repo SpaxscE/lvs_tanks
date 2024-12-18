@@ -5,6 +5,7 @@ local CannonBodyGroup = 1 -- the bodygroup we are watching
 local LoadoutsMember = {
 	[0] = {
 		CannonReloadSound = "lvs/vehicles/tiger/cannon_reload.wav",
+		CannonUnloadSound = "lvs/vehicles/tiger/cannon_unload.wav",
 		CannonArmorPenetration = 13700,
 		CannonArmorPenetration1km = 8000,
 		CannonExplosivePenetration = 500,
@@ -14,6 +15,7 @@ local LoadoutsMember = {
 	},
 	[1] = {
 		CannonReloadSound = "lvs/vehicles/pz3/cannon_reload.wav",
+		CannonUnloadSound = "lvs/vehicles/pz3/cannon_unload.wav",
 		CannonArmorPenetration = 5400,
 		CannonArmorPenetration1km = 3000,
 		CannonExplosivePenetration = 500,
@@ -23,6 +25,7 @@ local LoadoutsMember = {
 	},
 	[2] = {
 		CannonReloadSound = "lvs/vehicles/wespe/cannon_reload.wav",
+		CannonUnloadSound = "lvs/vehicles/wespe/cannon_unload.wav",
 		CannonArmorPenetration = 7400,
 		CannonArmorPenetration1km = 4500,
 		CannonExplosivePenetration = 4000,
