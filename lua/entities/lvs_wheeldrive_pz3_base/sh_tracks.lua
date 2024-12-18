@@ -4,6 +4,24 @@ if SERVER then
 	ENT.PivotSteerByBrake = true
 	ENT.PivotSteerWheelRPM = 40
 
+	ENT.TrackGibs = {
+		["left"] = {
+			{
+				mdl = "models/diggercars/pz3/tracks_ragdoll.mdl",
+				pos = Vector(0,48.7,0),
+				ang = Angle(-90,-90,0),
+			},
+		},
+		["right"] = {
+			{
+				mdl = "models/diggercars/pz3/tracks_ragdoll.mdl",
+				pos = Vector(0,-48.7,0),
+				ang = Angle(-90,-90,0),
+			},
+		}
+	}
+
+
 	function ENT:TracksCreate( PObj )
 		self:CreateTrackPhysics( "models/diggercars/pz3/tracks_col.mdl" )
 
