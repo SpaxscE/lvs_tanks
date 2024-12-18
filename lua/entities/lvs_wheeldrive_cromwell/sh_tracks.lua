@@ -75,7 +75,7 @@ if SERVER then
 			},
 			Wheels = { R1, L1, R2, L2 },
 			Suspension = {
-				Height = 18,
+				Height = 15,
 				MaxTravel = 15,
 				ControlArmLength = 150,
 				SpringConstant = 20000,
@@ -94,7 +94,7 @@ if SERVER then
 			},
 			Wheels = { R3, L3, L4, R4 },
 			Suspension = {
-				Height = 18,
+				Height = 16,
 				MaxTravel = 15,
 				ControlArmLength = 150,
 				SpringConstant = 20000,
@@ -114,7 +114,7 @@ if SERVER then
 			},
 			Wheels = { R5, L5 },
 			Suspension = {
-				Height = 18,
+				Height = 17,
 				MaxTravel = 15,
 				ControlArmLength = 150,
 				SpringConstant = 20000,
