@@ -4,6 +4,23 @@ if SERVER then
 	ENT.PivotSteerByBrake = true
 	ENT.PivotSteerWheelRPM = 40
 
+	ENT.TrackGibs = {
+		["left"] = {
+			{
+				mdl = "models/diggercars/t34/tracks_testragdoll_mid2.mdl",
+				pos = Vector(0,50.5,0),
+				ang = Angle(-90,-90,0),
+			},
+		},
+		["right"] = {
+			{
+				mdl = "models/diggercars/t34/tracks_testragdoll_mid2.mdl",
+				pos = Vector(0,-50.5,0),
+				ang = Angle(-90,-90,0),
+			},
+		}
+	}
+
 	function ENT:OnLeftTrackRepaired()
 		self:SetBodygroup(2,0)
 	end
@@ -110,33 +127,6 @@ if SERVER then
 	end
 else
 	ENT.TrackSystemEnable = true
-
-	ENT.TrackGibs = {
-		["left"] = {
-			{
-				mdl = "models/diggercars/t34/tracks_testragdoll_front2.mdl",
-				pos = Vector(0,50.5,50),
-				ang = Angle(90,-90,0),
-			},
-			{
-				mdl = "models/diggercars/t34/tracks_testragdoll_rear7.mdl",
-				pos = Vector(0,50.5,50),
-				ang = Angle(90,-90,0),
-			},
-		},
-		["right"] = {
-			{
-				mdl = "models/diggercars/t34/tracks_testragdoll_front2.mdl",
-				pos = Vector(0,-50.5,50),
-				ang = Angle(90,-90,0),
-			},
-			{
-				mdl = "models/diggercars/t34/tracks_testragdoll_rear7.mdl",
-				pos = Vector(0,-50.5,50),
-				ang = Angle(90,-90,0),
-			},
-		}
-	}
 
 	ENT.TrackScrollTexture = "models/diggercars/t34/tracks"
 	ENT.ScrollTextureData = {
