@@ -135,7 +135,7 @@ function ENT:MakeTurretPhysics()
 	} )
 
 	-- turret
-	local TurretArmor = self:AddArmor( Vector(20,0,80), Angle(0,0,0), Vector(-65,-65,-25), Vector(65,65,25), 1000, self.TurretArmor, Turret )
+	local TurretArmor = self:AddArmor( Vector(20,0,80), Angle(0,0,0), Vector(-65,-65,-25), Vector(65,65,25), 1000, self.TurretArmor )
 	TurretArmor:SetLabel( "Turret" )
 	self:SetTurretArmor( TurretArmor )
 end
