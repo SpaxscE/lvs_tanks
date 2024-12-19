@@ -131,5 +131,5 @@ function ENT:MakeTurretPhysics()
 	-- turret right
 	self:AddArmor( Vector(-7,-31,19.8), Angle(0,0,0), Vector(-42,-10,-16), Vector(42,10,16), 1200, self.FrontArmorPlate, Turret )
 	-- turret left
-	self:AddArmor( Vector(-7,29,19.8), Angle(0,0,0), Vector(-42,-8,-16), Vector(42,8,16), 1200, self.FrontArmorPlate, Turret )
+	self:AddArmor( Vector(-7,31,19.8), Angle(0,0,0), Vector(-42,-10,-16), Vector(42,10,16), 1200, self.FrontArmorPlate, Turret )
 end
