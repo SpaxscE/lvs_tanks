@@ -4,13 +4,14 @@
 	"$bumpmap" "models/diggercars/shared/metalb_nm"	
 	"$alphatest" "1"
 	"$allowalphatocoverage" "1"
+	"$normalmapalphaenvmapmask" 1
 	"$halflambert" 1
 	"$phong" "1" 
-	"$phongboost" "5" 
+	"$phongboost" "15" 
 	"$phongfresnelranges" "[.3 .5 1]" 
 	"$phongexponent" 20
 	"$envmap" "env_cubemap"
-	"$envmaptint" "[0.2 0.2 0.2]"
+	"$envmaptint" "[0.05 0.05 0.05]"
 	"$envmapfrensel" "1"
 	"$colorfix" "{255 255 255}"
 	"Proxies"
@@ -21,4 +22,3 @@
 			resultVar	$color
 		}
 	}
-}
