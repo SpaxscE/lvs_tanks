@@ -17,6 +17,11 @@ function ENT:OnSpawn( PObj )
 
 	self:AddFuelTank( Vector(-38,0,31), Angle(0,0,0), 600, LVS.FUELTYPE_PETROL, Vector(-19,-30,-9),Vector(19,30,9) )
 
+	-- turret
+	local TurretArmor = self:AddArmor( Vector(20,0,80), Angle(0,0,0), Vector(-65,-65,-25), Vector(65,65,25), 1000, self.TurretArmor )
+	TurretArmor:SetLabel( "Turret" )
+	self:SetTurretArmor( TurretArmor )
+
 	-- front up
 	self:AddArmor( Vector(54,0,51), Angle(60,0,0), Vector(-4,-32,-1), Vector(4,32,1), 800, self.FrontArmor )
 	-- front

@@ -27,13 +27,8 @@ end
 function ENT:MakeTurretPhysics()
 	self:SetPoseParameter("clip", 6 )
 
-	local Turret = self:CreateTurretPhysics( {
+	self:CreateTurretPhysics( {
 		follow = "turret_att",
 		mdl = "models/diggercars/crusader/turret_mk1_col.mdl",
 	} )
-
-	-- turret
-	local TurretArmor = self:AddArmor( Vector(0,0,25), Angle(0,0,0), Vector(-45,-45,-25), Vector(45,45,25), 1000, self.TurretArmor, Turret )
-	TurretArmor:SetLabel( "Turret" )
-	self:SetTurretArmor( TurretArmor )
 end
