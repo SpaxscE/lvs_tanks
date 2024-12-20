@@ -129,7 +129,6 @@ end
 
 function ENT:MakeTurretPhysics()
 	self:CreateTurretPhysics( {
-		start = "root_att",
 		follow = "turret_att",
 		mdl = "models/diggercars/crusader/turret_col.mdl",
 	} )

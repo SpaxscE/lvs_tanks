@@ -28,7 +28,6 @@ function ENT:MakeTurretPhysics()
 	self:SetPoseParameter("clip", 6 )
 
 	local Turret = self:CreateTurretPhysics( {
-		start = "root_att",
 		follow = "turret_att",
 		mdl = "models/diggercars/crusader/turret_mk1_col.mdl",
 	} )

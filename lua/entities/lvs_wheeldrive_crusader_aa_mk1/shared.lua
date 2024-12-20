@@ -210,6 +210,4 @@ ENT.Lights = {
 			{ pos = "h", ang = Angle(0,0,0), colorB = 200, colorA = 150, shadows = true },
 		},
 	},
-
-
 }
