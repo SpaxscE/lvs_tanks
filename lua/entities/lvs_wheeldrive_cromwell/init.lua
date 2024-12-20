@@ -58,13 +58,18 @@ function ENT:OnSpawn( PObj )
 
 	self:AddFuelTank( Vector(-75,0,40), Angle(0,0,0), 600, LVS.FUELTYPE_PETROL, Vector(-15,-30,-10),Vector(15,30,10) )
 
-	-- neck
-	local TurretArmor = self:AddArmor( Vector(15,0,62.5), Angle(0,0,0), Vector(-32,-32,-1), Vector(32,32,1), 500, self.TurretArmor )
+
+
+	-- turret
+	local TurretArmor = self:AddArmor( Vector(15,0,79.5), Angle(0,0,0), Vector(-60,-60,-16), Vector(60,60,16), 1500, self.TurretArmor )
 	TurretArmor:SetLabel( "Turret" )
 	self:SetTurretArmor( TurretArmor )
 
+	-- neck
+	self:AddArmor( Vector(15,0,62.5), Angle(0,0,0), Vector(-32,-32,-1), Vector(32,32,1), 900, self.SideArmor )
+
 	-- front
-	self:AddArmor( Vector(81,0,53), Angle(0,0,0), Vector(-4,-45,-9), Vector(4,45,9), 1200, self.FrontArmorPlate )
+	self:AddArmor( Vector(81,0,53), Angle(0,0,0), Vector(-4,-45,-9), Vector(4,45,9), 1200, self.TurretArmor )
 
 	-- front up left
 	self:AddArmor( Vector(28,40,53), Angle(0,0,0), Vector(-49,-5,-9), Vector(49,5,9), 1000, self.SideArmor )
@@ -116,20 +121,8 @@ function ENT:OnSpawn( PObj )
 end
 
 function ENT:MakeTurretPhysics()
-
-	local Turret = self:CreateTurretPhysics( {
+	self:CreateTurretPhysics( {
 		follow = "turret_att",
 		mdl = "models/diggercars/cromwell/turret_col.mdl",
 	} )
-
-	-- turret front
-	self:AddArmor( Vector(37,0,17.8), Angle(0,0,0), Vector(-2,-31,-14), Vector(2,31,14), 1500, self.TurretArmor, Turret )
-	-- turret rear
-	self:AddArmor( Vector(-47,0,19.8), Angle(0,0,0), Vector(-2,-21,-16), Vector(2,21,16), 1100, self.FrontArmor, Turret )
-	-- turret top
-	self:AddArmor( Vector(-5,0,19.8), Angle(0,0,0), Vector(-40,-21,-16), Vector(40,21,16), 400, self.RoofArmor, Turret )
-	-- turret right
-	self:AddArmor( Vector(-7,-31,19.8), Angle(0,0,0), Vector(-42,-10,-16), Vector(42,10,16), 1200, self.FrontArmorPlate, Turret )
-	-- turret left
-	self:AddArmor( Vector(-7,31,19.8), Angle(0,0,0), Vector(-42,-10,-16), Vector(42,10,16), 1200, self.FrontArmorPlate, Turret )
 end
