@@ -57,7 +57,7 @@ function ENT:InitWeapons()
 		bullet.SplashDamageEffect = ""
 		bullet.SplashDamageType = DMG_SONIC
 		bullet.Velocity = ent.ProjectileVelocityArmorPiercing
-		bullet.TracerName = "lvs_tracer_autocannon_twin"
+		bullet.TracerName = "lvs_tracer_autocannon"
 		bullet.Attacker 	= ent:GetDriver()
 		ent:LVSFireBullet( bullet )
 
