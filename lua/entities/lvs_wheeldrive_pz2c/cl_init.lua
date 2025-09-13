@@ -2,7 +2,7 @@ include("shared.lua")
 include("sh_turret.lua")
 include("sh_tracks.lua")
 include("cl_tankview.lua")
-include("entities/lvs_wheeldrive_dodtiger/cl_optics.lua")
+include("cl_optics.lua")
 
 ENT.OpticsProjectileSize = 2
 

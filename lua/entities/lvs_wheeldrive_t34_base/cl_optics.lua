@@ -1,6 +1,4 @@
 
-include("entities/lvs_wheeldrive_dodtiger/cl_optics.lua")
-
 ENT.OpticsFov = 30
 ENT.OpticsEnable = true
 ENT.OpticsZoomOnly = true
